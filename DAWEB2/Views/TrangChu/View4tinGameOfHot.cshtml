@@ -1,0 +1,12 @@
+﻿@foreach (var tinGameOfHot in Model)
+{
+    <li>
+        <a href="@Url.Action("View4tinGameOfHot","TrangChu",new { id = tinGameOfHot.idTin})">
+            @tinGameOfHot.TieuDe
+        </a>
+    </li>
+}
+
+
+
+
