@@ -1,0 +1,11 @@
+﻿@foreach (var tinGameOf in Model)
+{
+
+    <img src="~/TemplateMau/images/@tinGameOf.urlHinh" class="img-responsive" />
+    <div class="video-bottom-grid1-pos">
+        <a href="@Url.Action("Lay1TinGameOf","TrangChu",new { id = tinGameOf.idTin})">
+            <p>@tinGameOf.TieuDe</p>
+        </a>
+
+    </div>
+}

@@ -1,0 +1,238 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="banner-bottom">
+    <div class="container">
+        <!-- video-bottom-grids -->
+        <div class="video-bottom-grids">
+            <div class="video-bottom-grids1">
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before">
+                            @Html.Action("Lay1TinCongNgheTheGioi", "TrangChu")
+                        </div>
+                        <ul>
+                            @Html.Action("View4tinCNTG", "TrangChu")
+                        </ul>
+                        <div class="read-more">
+                            <a href="single.html">Tin Công nghệ thế giới</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before1">
+                            @Html.Action("Lay1TinCNTN", "TrangChu")
+                        </div>
+                        <ul class="list">
+                            @Html.Action("View4tinCNTN", "TrangChu")
+                        </ul>
+                        <div class="read-more res">
+                            <a href="single.html">Tin Công Nghệ Trong Nước</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before2">
+                            @Html.Action("Lay1TinGameOnline", "TrangChu")
+                        </div>
+                        <ul class="list1">
+                            @Html.Action("View4tinGameOnline", "TrangChu")
+                        </ul>
+                        <div class="read-more res1">
+                            <a href="single.html">Tin Game online</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before3">
+                            @Html.Action("Lay1TinGameOffline", "TrangChu")
+                        </div>
+                        <ul class="list2">
+                            @Html.Action("View4tinGameOffline", "TrangChu")
+                        </ul>
+                        <div class="read-more res2">
+                            <a href="single.html">Tin Game offline</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="video-bottom-grids1">
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before4">
+                            @Html.Action("Lay1TinCNTGHot", "TrangChu")
+                        </div>
+                        <ul class="list2">
+                            @Html.Action("View4tinCNTGHot", "TrangChu")
+                        </ul>
+                        <div class="read-more res3">
+                            <a href="single.html">CNTG HOT</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before5">
+                            @Html.Action("Lay1TinCNTNHot", "TrangChu")
+
+
+                        </div>
+                        <ul class="list4">
+                            @Html.Action("View4tinCNTNHot", "TrangChu")
+
+
+                        </ul>
+                        <div class="read-more res4">
+                            <a href="single.html">CNTN HOT</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before6">
+                            @Html.Action("Lay1TinGameOnHot", "TrangChu")
+                        </div>
+                        <ul class="list5">
+                            @Html.Action("View4tinGameOnHot", "TrangChu")
+                        </ul>
+                        <div class="read-more res5">
+                            <a href="single.html">HOT GAME ONLINE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 video-bottom-grid">
+                    <div class="video-bottom-grid1">
+                        <div class="video-bottom-grid1-before before7">
+                            @Html.Action("Lay1TinGameOfHot", "TrangChu")
+                        </div>
+                        <ul class="list6">
+                            @Html.Action("View4tinGameOfHot", "TrangChu")
+                        </ul>
+                        <div class="read-more res6">
+                            <a href="single.html">HOT GAME OFFLINE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //video-bottom-grids -->
+        <!-- news-and-events -->
+        <div class="news">
+            <div class="news-grids">
+                <div class="col-md-8 news-grid-left">
+                    <h3>Tin tức & sự kiện nổi bật</h3>
+                    <ul>
+                        @Html.Action("TinTucSuKienNoiBat", "TrangChu")
+                        @*<li>
+                            <div class="news-grid-left1">
+                                <img src="~/Template/images/16.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="news-grid-right1">
+                                <h4><a href="single.html">Mexico's oil giant is in uncharted waters</a></h4>
+                                <h5>By <a href="#">Elizibeth Malkin</a> <label>|</label> <i>31.12.2015</i></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>
+                        <li>
+                            <div class="news-grid-left1">
+                                <img src="~/Template/images/17.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="news-grid-right1">
+                                <h4><a href="single.html">second wave of votes to legalize marijuana</a></h4>
+                                <h5>By <a href="#">james smith</a> <label>|</label> <i>31.12.2015</i></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>
+                        <li>
+                            <div class="news-grid-left1">
+                                <img src="~/Template/images/13.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="news-grid-right1">
+                                <h4><a href="single.html">Antares rocket, bound for space station, explodes</a></h4>
+                                <h5>By <a href="#">Michael Drew</a> <label>|</label> <i>31.12.2015</i></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>
+                        <li>
+                            <div class="news-grid-left1">
+                                <img src="~/Template/images/12.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="news-grid-right1">
+                                <h4><a href="single.html">stronger family bonds, two years after hurricane sandy</a></h4>
+                                <h5>By <a href="#">james smith</a> <label>|</label> <i>31.12.2015</i></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>
+                        <li>
+                            <div class="news-grid-left1">
+                                <img src="~/Template/images/15.jpg" alt=" " class="img-responsive" />
+                            </div>
+                            <div class="news-grid-right1">
+                                <h4><a href="single.html">royal crush giants and force game 7</a></h4>
+                                <h5>By <a href="#">Michael Drew</a> <label>|</label> <i>31.12.2015</i></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </li>*@
+                    </ul>
+                </div>
+                <div class="col-md-4 news-grid-right">
+                    <div class="news-grid-rght1">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a class="high" href="#home" aria-controls="home" role="tab" data-toggle="tab">Thời tiết</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active london" id="home">
+                                <ul>
+                                    <li>
+                                        <h4>Wednesday</h4>
+                                        <span></span>
+                                        <p>21<sup>°</sup></p>
+                                    </li>
+                                    <li>
+                                        <h4>Thursday</h4>
+                                        <span class="moon"></span>
+                                        <p>25<sup>°</sup></p>
+                                    </li>
+                                    <li>
+                                        <h4>Friday</h4>
+                                        <span class="sun"></span>
+                                        <p>31<sup>°</sup></p>
+                                    </li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26359652.109742895!2d-113.72446020222534!3d36.24602872499641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1450786850582" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-grid-rght2">
+                        <h3>theo dõi bản tin của chúng tôi</h3>
+                        <p>Nhận được tin tức và sự kiện mới nhát về công nghệ và game. Mang đến thông tin nhanh chóng bổ ích cho bạn.</p>
+                        <form>
+                            <input type="text" value="enter your Email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'enter your Email address';}">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //news-and-events -->
+    </div>
+</div>
