@@ -81,12 +81,24 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -196,8 +208,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -221,6 +237,50 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="HTML5 Admin Template\css\ie.css" />
+    <Content Include="HTML5 Admin Template\css\layout.css" />
+    <Content Include="HTML5 Admin Template\images\breadcrumb_divider.png" />
+    <Content Include="HTML5 Admin Template\images\btn_submit.png" />
+    <Content Include="HTML5 Admin Template\images\btn_submit_2.png" />
+    <Content Include="HTML5 Admin Template\images\btn_view_site.png" />
+    <Content Include="HTML5 Admin Template\images\header_bg.png" />
+    <Content Include="HTML5 Admin Template\images\header_shadow.png" />
+    <Content Include="HTML5 Admin Template\images\icn_add_user.png" />
+    <Content Include="HTML5 Admin Template\images\icn_alert_error.png" />
+    <Content Include="HTML5 Admin Template\images\icn_alert_info.png" />
+    <Content Include="HTML5 Admin Template\images\icn_alert_success.png" />
+    <Content Include="HTML5 Admin Template\images\icn_alert_warning.png" />
+    <Content Include="HTML5 Admin Template\images\icn_audio.png" />
+    <Content Include="HTML5 Admin Template\images\icn_categories.png" />
+    <Content Include="HTML5 Admin Template\images\icn_edit.png" />
+    <Content Include="HTML5 Admin Template\images\icn_edit_article.png" />
+    <Content Include="HTML5 Admin Template\images\icn_folder.png" />
+    <Content Include="HTML5 Admin Template\images\icn_jump_back.png" />
+    <Content Include="HTML5 Admin Template\images\icn_logout.png" />
+    <Content Include="HTML5 Admin Template\images\icn_new_article.png" />
+    <Content Include="HTML5 Admin Template\images\icn_photo.png" />
+    <Content Include="HTML5 Admin Template\images\icn_profile.png" />
+    <Content Include="HTML5 Admin Template\images\icn_search.png" />
+    <Content Include="HTML5 Admin Template\images\icn_security.png" />
+    <Content Include="HTML5 Admin Template\images\icn_settings.png" />
+    <Content Include="HTML5 Admin Template\images\icn_tags.png" />
+    <Content Include="HTML5 Admin Template\images\icn_trash.png" />
+    <Content Include="HTML5 Admin Template\images\icn_user.png" />
+    <Content Include="HTML5 Admin Template\images\icn_video.png" />
+    <Content Include="HTML5 Admin Template\images\icn_view_users.png" />
+    <Content Include="HTML5 Admin Template\images\module_footer_bg.png" />
+    <Content Include="HTML5 Admin Template\images\post_message.png" />
+    <Content Include="HTML5 Admin Template\images\secondary_bar.png" />
+    <Content Include="HTML5 Admin Template\images\secondary_bar_shadow.png" />
+    <Content Include="HTML5 Admin Template\images\sidebar.png" />
+    <Content Include="HTML5 Admin Template\images\sidebar_divider.png" />
+    <Content Include="HTML5 Admin Template\images\sidebar_shadow.png" />
+    <Content Include="HTML5 Admin Template\images\table_sorter_header.png" />
+    <Content Include="HTML5 Admin Template\index.html" />
+    <Content Include="HTML5 Admin Template\js\hideshow.js" />
+    <Content Include="HTML5 Admin Template\js\jquery-1.5.2.min.js" />
+    <Content Include="HTML5 Admin Template\js\jquery.equalHeight.js" />
+    <Content Include="HTML5 Admin Template\js\jquery.tablesorter.min.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -329,7 +389,9 @@
     <Content Include="TemplateMau\js\modernizr.custom.46884.js" />
     <Content Include="TemplateMau\js\modernizr.custom.min.js" />
     <Content Include="TemplateMau\js\responsiveslides.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -390,6 +452,15 @@
     <Content Include="Views\TrangChu\CTTin.cshtml" />
     <Content Include="Views\TrangChu\CungChuyenMucTrangCTTin.cshtml" />
     <Content Include="Views\TrangChu\TrangLoaiTin.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
+    <Content Include="Views\LienHe\lienhe1.cshtml" />
+    <Content Include="Views\LienHe\lienhe3.cshtml" />
+    <Content Include="Views\LienHe\lienhe4.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\QLTheLoai.cshtml" />
+    <Content Include="Views\Admin\EditTheLoai.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

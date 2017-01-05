@@ -126,10 +126,13 @@ namespace DAWEB2.Controllers
         public void EditSoLanXem(int id)
         {
             var a = db.Tins.FirstOrDefault(x => x.idTin == id);
-            a.SoLanXem +=1;
+            a.SoLanXem += 1;
             UpdateModel(db);
-            db.SubmitChanges(); 
+            db.SubmitChanges();
         }
-
+        public ActionResult contact()
+        {
+            return View();
+        }
     }
 }

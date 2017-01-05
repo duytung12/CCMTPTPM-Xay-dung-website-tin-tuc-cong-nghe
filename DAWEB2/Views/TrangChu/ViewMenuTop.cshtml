@@ -1,6 +1,6 @@
 ﻿
                     <ul class="nav navbar-nav cl-effect-18" id="cl-effect-18">
-                        <li class="act"><a href="#" class="effect1 active">Home</a></li>
+                        <li class="act"><a href="@Url.Action("Index", "TrangChu")" class="effect1 active">Home</a></li>
                         @foreach (var loaitin in Model)
                         {
                             <li><a href="@Url.Action("TrangLoaiTin","TrangChu",new { idLT = loaitin.idLoaiTin})">@loaitin.Ten</a></li>
@@ -18,7 +18,8 @@
                                 <li><a href="short-codes.html">Stock</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                    </ul>
+                        <li><a href="@Url.Action("Index", "LienHe")">Liên Hệ</a></li>
+
+</ul>
 
 

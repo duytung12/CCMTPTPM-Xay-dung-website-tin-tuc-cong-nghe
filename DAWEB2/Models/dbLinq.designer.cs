@@ -22,7 +22,7 @@ namespace DAWEB2.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TinTucWeb")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TinTucWeb2")]
 	public partial class dbLinqDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,9 +33,15 @@ namespace DAWEB2.Models
     partial void InsertComMent(ComMent instance);
     partial void UpdateComMent(ComMent instance);
     partial void DeleteComMent(ComMent instance);
+    partial void InsertDSMail(DSMail instance);
+    partial void UpdateDSMail(DSMail instance);
+    partial void DeleteDSMail(DSMail instance);
     partial void InsertLoaiTin(LoaiTin instance);
     partial void UpdateLoaiTin(LoaiTin instance);
     partial void DeleteLoaiTin(LoaiTin instance);
+    partial void InsertMessage(Message instance);
+    partial void UpdateMessage(Message instance);
+    partial void DeleteMessage(Message instance);
     partial void InsertTin(Tin instance);
     partial void UpdateTin(Tin instance);
     partial void DeleteTin(Tin instance);
@@ -48,7 +54,7 @@ namespace DAWEB2.Models
     #endregion
 		
 		public dbLinqDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TinTucWebConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TinTucWeb2ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -85,11 +91,27 @@ namespace DAWEB2.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<DSMail> DSMails
+		{
+			get
+			{
+				return this.GetTable<DSMail>();
+			}
+		}
+		
 		public System.Data.Linq.Table<LoaiTin> LoaiTins
 		{
 			get
 			{
 				return this.GetTable<LoaiTin>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Message> Messages
+		{
+			get
+			{
+				return this.GetTable<Message>();
 			}
 		}
 		
@@ -292,6 +314,92 @@ namespace DAWEB2.Models
 						this._idTin = default(int);
 					}
 					this.SendPropertyChanged("Tin");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DSMail")]
+	public partial class DSMail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idMail;
+		
+		private string _Email;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidMailChanging(int value);
+    partial void OnidMailChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    #endregion
+		
+		public DSMail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMail", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idMail
+		{
+			get
+			{
+				return this._idMail;
+			}
+			set
+			{
+				if ((this._idMail != value))
+				{
+					this.OnidMailChanging(value);
+					this.SendPropertyChanging();
+					this._idMail = value;
+					this.SendPropertyChanged("idMail");
+					this.OnidMailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
@@ -520,6 +628,140 @@ namespace DAWEB2.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
+	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idMes;
+		
+		private string _Hoten;
+		
+		private string _Email;
+		
+		private string _Mess;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidMesChanging(int value);
+    partial void OnidMesChanged();
+    partial void OnHotenChanging(string value);
+    partial void OnHotenChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnMessChanging(string value);
+    partial void OnMessChanged();
+    #endregion
+		
+		public Message()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMes", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idMes
+		{
+			get
+			{
+				return this._idMes;
+			}
+			set
+			{
+				if ((this._idMes != value))
+				{
+					this.OnidMesChanging(value);
+					this.SendPropertyChanging();
+					this._idMes = value;
+					this.SendPropertyChanged("idMes");
+					this.OnidMesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hoten", DbType="NVarChar(50)")]
+		public string Hoten
+		{
+			get
+			{
+				return this._Hoten;
+			}
+			set
+			{
+				if ((this._Hoten != value))
+				{
+					this.OnHotenChanging(value);
+					this.SendPropertyChanging();
+					this._Hoten = value;
+					this.SendPropertyChanged("Hoten");
+					this.OnHotenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(20)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mess", DbType="NVarChar(MAX)")]
+		public string Mess
+		{
+			get
+			{
+				return this._Mess;
+			}
+			set
+			{
+				if ((this._Mess != value))
+				{
+					this.OnMessChanging(value);
+					this.SendPropertyChanging();
+					this._Mess = value;
+					this.SendPropertyChanged("Mess");
+					this.OnMessChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tin")]
 	public partial class Tin : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -536,7 +778,7 @@ namespace DAWEB2.Models
 		
 		private System.DateTime _Ngay;
 		
-		private int _idUser;
+		private string _idUser;
 		
 		private string _NoiDung;
 		
@@ -572,7 +814,7 @@ namespace DAWEB2.Models
     partial void OnurlHinhChanged();
     partial void OnNgayChanging(System.DateTime value);
     partial void OnNgayChanged();
-    partial void OnidUserChanging(int value);
+    partial void OnidUserChanging(string value);
     partial void OnidUserChanged();
     partial void OnNoiDungChanging(string value);
     partial void OnNoiDungChanged();
@@ -697,8 +939,8 @@ namespace DAWEB2.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="Int NOT NULL")]
-		public int idUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string idUser
 		{
 			get
 			{
@@ -957,7 +1199,7 @@ namespace DAWEB2.Models
 					}
 					else
 					{
-						this._idUser = default(int);
+						this._idUser = default(string);
 					}
 					this.SendPropertyChanged("User");
 				}
@@ -1169,7 +1411,7 @@ namespace DAWEB2.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idUser;
+		private string _idUser;
 		
 		private string _HoTen;
 		
@@ -1197,7 +1439,7 @@ namespace DAWEB2.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidUserChanging(int value);
+    partial void OnidUserChanging(string value);
     partial void OnidUserChanged();
     partial void OnHoTenChanging(string value);
     partial void OnHoTenChanged();
@@ -1227,8 +1469,8 @@ namespace DAWEB2.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idUser
 		{
 			get
 			{

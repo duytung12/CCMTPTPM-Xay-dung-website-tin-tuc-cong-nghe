@@ -36,7 +36,8 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo">
-                            <a class="navbar-brand" href="index.html"><span>24H</span> Cong Nghe </a>
+                            <a class="navbar-brand" href="@Url.Action("Index", "TrangChu")"><span>24H</span> Cong Nghe </a>
+                           
                         </div>
                     </div>
 
@@ -215,12 +216,7 @@
                 </div>
                 <div class="col-md-4 footer-grid-left">
                     <h3>Liên hệ</h3>
-                    <form>
-                        <input type="text" value="Họ & tên" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Họ & tên';}" required="">
-                        <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                        <textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tin nhắn...';}" required="">Tin nhắn...</textarea>
-                        <input type="submit" value="Submit">
-                    </form>
+                    @Html.Action("lienhe3", "LienHe")
                 </div>
                 <div class="col-md-4 footer-grid-left">
                     <h3>Về chúng tôi</h3>

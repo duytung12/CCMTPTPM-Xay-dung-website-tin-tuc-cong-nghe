@@ -1,0 +1,130 @@
+﻿@model DAWEB2.Models.TheLoai
+
+@{
+    ViewBag.Title = "EditTheLoai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h2>EditTheLoai</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TheLoai</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idTheLoai)
+
+        <div class="form-group">
+            Ten
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTheLoai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTheLoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AnhHien, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">Chọn ảnh mới
+            @*<input type="file" name="fileUpload" />
+            <img  src="@Url.Content("~/TemplateMau/images/" + Model.AnhHien)"/>(Ảnh hiện tại)*@
+                @*@Html.EditorFor(model => model.AnhHien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AnhHien, "", new { @class = "text-danger" })*@
+            @*</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>*@
+@*}*@
+
+    @using (Html.BeginForm("EditTheLoai", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <section id="main" class="column">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.idTheLoai)
+            <article class="module width_full">
+                <header><h3>Chỉnh sửa Thể loại</h3></header>
+                <div class="module_content">
+                    <fieldset>
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.TenTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <label>Tên thể loại</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TenTheLoai, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenTheLoai, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <label style="display: block;
+                                float: left;
+                                width: 300px;
+                                height: 25px;
+                                line-height: 25px;
+                                text-shadow: 0 1px 0 #fff;
+                                font-weight: bold;
+                                padding-left: 10px;
+                                margin: -5px 0 5px 0;
+                                text-transform: uppercase;">
+                                        Đổi hình đại diện cho thể loại (200 x 200px)
+                                        @*@Html.LabelFor(model => model.AnhHien, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="file" name="fileUpload" class="btn-danger" />
+                                    @*@Html.EditorFor(model => model.AnhHien, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AnhHien, "", new { @class = "text-danger" })*@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img name="hinhanh" src="@Url.Content("~/TemplateMau/images/" + Model.AnhHien)" style="height:200px;width:200px" />(Ảnh hiện tại)
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    @*<fieldset style="width:48%; float:left; margin-right: 3%;">
+                        <!-- to make two field float next to one another, adjust values accordingly -->
+                        <label>Category</label>
+                        <select style="width:92%;">
+                            <option>Articles</option>
+                            <option>Tutorials</option>
+                            <option>Freebies</option>
+                        </select>
+
+                    </fieldset>
+                    <fieldset style="width:48%; float:left;">
+                        <!-- to make two field float next to one another, adjust values accordingly -->
+                        <label>Tags</label>
+                        <input type="text" style="width:92%;">
+                    </fieldset>*@
+                    <div class="clear"></div>
+                </div>
+                <footer>
+                    <div class="submit_link">
+
+                        <input type="submit" value="Save" class="alt_btn">
+                        <input type="submit" value="Reset">
+                    </div>
+                </footer>
+            </article> @*end of post new article*@
+
+            
+        </section>
+    }
+
+
+
