@@ -1,0 +1,42 @@
+﻿@model DAWEB2.Models.Message
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Phần nhập phản hồi người dùng dưới dạng Partial View ( Họ Tên, Email, Phản hồi) -->
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hoten, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Hoten)
+                @Html.ValidationMessageFor(model => model.Hoten)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mess, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea name="Mess"></textarea>
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Gửi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+  
