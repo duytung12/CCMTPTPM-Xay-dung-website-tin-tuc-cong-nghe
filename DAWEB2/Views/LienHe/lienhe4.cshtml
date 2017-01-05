@@ -1,0 +1,23 @@
+﻿@model DAWEB2.Models.DSMail
+@using (Html.BeginForm())
+{
+        @Html.AntiForgeryToken()
+    <!-- Phần Khách đăng ký nhận mail khi có tin mới ( Partival View ) > lưu mail vào DB, Table DSMail-->
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng ký nhận tin mới" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

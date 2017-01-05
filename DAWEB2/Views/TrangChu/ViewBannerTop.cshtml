@@ -1,0 +1,23 @@
+﻿@foreach(var tin in Model)
+{ 
+<li>
+    <div class="banner-info-slider">
+        <ul>
+            <li><a href="#"
+                   >@tin.LoaiTin.Ten</a></li>
+            <li>@tin.Ngay</li>
+        </ul>
+        <h1>@tin.TieuDe</h1>
+        <p>
+           @tin.TomTat
+            <span>Đăng bởi <i>Công Nghệ 24h</i></span>
+        </p>
+        <div class="more">
+            <a href="@Url.Action("CTTin","TrangChu",new { id = tin.idTin})" class="type-1">
+                <span> Read More </span>
+                <span> Read More </span>
+            </a>
+        </div>
+    </div>
+</li>
+}

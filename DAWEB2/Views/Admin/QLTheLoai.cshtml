@@ -1,0 +1,103 @@
+﻿@*@model DAWEB2.Models.TheLoai*@
+@model IEnumerable<DAWEB2.Models.TheLoai>
+@{
+    ViewBag.Title = "QLTheLoai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<section id="main" class="column">
+    <article class="module width_3_quarter">
+        <header>
+            <h3 class="tabs_involved">Danh sách thể loại</h3>
+            <ul class="tabs">
+            </ul>
+        </header>
+        <div class="tab_container">
+            <div id="tab1" class="tab_content">
+                <table class="tablesorter" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên thể loại</th>
+                            <th>Hình ảnh đại diện</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model)
+                        { 
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.TenTheLoai)</td>
+                            <td><img src="@Url.Content("~/TemplateMau/images/" + item.AnhHien)"  style="height:200px;width:200px"/></td>
+                            <td>
+                                <a href='@Url.Action("EditTheLoai", new { id = item.idTheLoai })'>
+                                    <img src='@Url.Content("~/HTML5 Admin Template/images/icn_edit.png")' />
+                                </a>
+                                    <a href='@Url.Action("DeleteTheLoai", new { id = item.idTheLoai })'>
+                                        <img src='@Url.Content("~/HTML5 Admin Template/images/icn_trash.png")' />
+                                    </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div><!-- end of #tab1 -->
+
+
+        </div><!-- end of .tab_container -->
+
+    </article><!-- end of content manager article -->
+
+
+    <div class="clear"></div>
+
+    <article class="module width_full">
+        <header><h3>Post New Article</h3></header>
+        <div class="module_content">
+            <fieldset>
+                <label>Post Title</label>
+                <input type="text">
+            </fieldset>
+            <fieldset>
+                <label>Content</label>
+                <textarea rows="12"></textarea>
+            </fieldset>
+            <fieldset style="width:48%; float:left; margin-right: 3%;">
+                <!-- to make two field float next to one another, adjust values accordingly -->
+                <label>Category</label>
+                <select style="width:92%;">
+                    <option>Articles</option>
+                    <option>Tutorials</option>
+                    <option>Freebies</option>
+                </select>
+            </fieldset>
+            <fieldset style="width:48%; float:left;">
+                <!-- to make two field float next to one another, adjust values accordingly -->
+                <label>Tags</label>
+                <input type="text" style="width:92%;">
+            </fieldset><div class="clear"></div>
+        </div>
+        <footer>
+            <div class="submit_link">
+                <select>
+                    <option>Draft</option>
+                    <option>Published</option>
+                </select>
+                <input type="submit" value="Publish" class="alt_btn">
+                <input type="submit" value="Reset">
+            </div>
+        </footer>
+    </article><!-- end of post new article -->
+
+    <h4 class="alert_warning">A Warning Alert</h4>
+
+    <h4 class="alert_error">An Error Message</h4>
+
+    <h4 class="alert_success">A Success Message</h4>
+
+    <div class="spacer"></div>
+</section>
+ }
