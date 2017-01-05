@@ -81,16 +81,20 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+<<<<<<< HEAD
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+=======
+>>>>>>> refs/remotes/origin/master
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+<<<<<<< HEAD
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +103,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
+=======
+>>>>>>> refs/remotes/origin/master
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -208,12 +214,17 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+<<<<<<< HEAD
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
+=======
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+>>>>>>> refs/remotes/origin/master
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,6 +248,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+<<<<<<< HEAD
     <Content Include="HTML5 Admin Template\css\ie.css" />
     <Content Include="HTML5 Admin Template\css\layout.css" />
     <Content Include="HTML5 Admin Template\images\breadcrumb_divider.png" />
@@ -281,6 +293,8 @@
     <Content Include="HTML5 Admin Template\js\jquery-1.5.2.min.js" />
     <Content Include="HTML5 Admin Template\js\jquery.equalHeight.js" />
     <Content Include="HTML5 Admin Template\js\jquery.tablesorter.min.js" />
+=======
+>>>>>>> refs/remotes/origin/master
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -389,9 +403,13 @@
     <Content Include="TemplateMau\js\modernizr.custom.46884.js" />
     <Content Include="TemplateMau\js\modernizr.custom.min.js" />
     <Content Include="TemplateMau\js\responsiveslides.min.js" />
+<<<<<<< HEAD
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+=======
+    <Content Include="Web.config" />
+>>>>>>> refs/remotes/origin/master
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -452,6 +470,7 @@
     <Content Include="Views\TrangChu\CTTin.cshtml" />
     <Content Include="Views\TrangChu\CungChuyenMucTrangCTTin.cshtml" />
     <Content Include="Views\TrangChu\TrangLoaiTin.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\LienHe\Index.cshtml" />
     <Content Include="Views\LienHe\lienhe1.cshtml" />
     <Content Include="Views\LienHe\lienhe3.cshtml" />
@@ -461,6 +480,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\QLTheLoai.cshtml" />
     <Content Include="Views\Admin\EditTheLoai.cshtml" />
+=======
+>>>>>>> refs/remotes/origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

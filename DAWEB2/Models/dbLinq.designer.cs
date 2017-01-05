@@ -22,7 +22,11 @@ namespace DAWEB2.Models
 	using System;
 	
 	
+<<<<<<< HEAD
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TinTucWeb2")]
+=======
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TinTucWeb")]
+>>>>>>> refs/remotes/origin/master
 	public partial class dbLinqDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,6 +37,7 @@ namespace DAWEB2.Models
     partial void InsertComMent(ComMent instance);
     partial void UpdateComMent(ComMent instance);
     partial void DeleteComMent(ComMent instance);
+<<<<<<< HEAD
     partial void InsertDSMail(DSMail instance);
     partial void UpdateDSMail(DSMail instance);
     partial void DeleteDSMail(DSMail instance);
@@ -42,6 +47,11 @@ namespace DAWEB2.Models
     partial void InsertMessage(Message instance);
     partial void UpdateMessage(Message instance);
     partial void DeleteMessage(Message instance);
+=======
+    partial void InsertLoaiTin(LoaiTin instance);
+    partial void UpdateLoaiTin(LoaiTin instance);
+    partial void DeleteLoaiTin(LoaiTin instance);
+>>>>>>> refs/remotes/origin/master
     partial void InsertTin(Tin instance);
     partial void UpdateTin(Tin instance);
     partial void DeleteTin(Tin instance);
@@ -54,7 +64,11 @@ namespace DAWEB2.Models
     #endregion
 		
 		public dbLinqDataContext() : 
+<<<<<<< HEAD
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TinTucWeb2ConnectionString"].ConnectionString, mappingSource)
+=======
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TinTucWebConnectionString"].ConnectionString, mappingSource)
+>>>>>>> refs/remotes/origin/master
 		{
 			OnCreated();
 		}
@@ -91,6 +105,7 @@ namespace DAWEB2.Models
 			}
 		}
 		
+<<<<<<< HEAD
 		public System.Data.Linq.Table<DSMail> DSMails
 		{
 			get
@@ -99,6 +114,8 @@ namespace DAWEB2.Models
 			}
 		}
 		
+=======
+>>>>>>> refs/remotes/origin/master
 		public System.Data.Linq.Table<LoaiTin> LoaiTins
 		{
 			get
@@ -107,6 +124,7 @@ namespace DAWEB2.Models
 			}
 		}
 		
+<<<<<<< HEAD
 		public System.Data.Linq.Table<Message> Messages
 		{
 			get
@@ -115,6 +133,8 @@ namespace DAWEB2.Models
 			}
 		}
 		
+=======
+>>>>>>> refs/remotes/origin/master
 		public System.Data.Linq.Table<Tin> Tins
 		{
 			get
@@ -339,6 +359,7 @@ namespace DAWEB2.Models
 		}
 	}
 	
+<<<<<<< HEAD
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DSMail")]
 	public partial class DSMail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -425,6 +446,8 @@ namespace DAWEB2.Models
 		}
 	}
 	
+=======
+>>>>>>> refs/remotes/origin/master
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiTin")]
 	public partial class LoaiTin : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -628,6 +651,7 @@ namespace DAWEB2.Models
 		}
 	}
 	
+<<<<<<< HEAD
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
 	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -762,6 +786,8 @@ namespace DAWEB2.Models
 		}
 	}
 	
+=======
+>>>>>>> refs/remotes/origin/master
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tin")]
 	public partial class Tin : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -778,7 +804,11 @@ namespace DAWEB2.Models
 		
 		private System.DateTime _Ngay;
 		
+<<<<<<< HEAD
 		private string _idUser;
+=======
+		private int _idUser;
+>>>>>>> refs/remotes/origin/master
 		
 		private string _NoiDung;
 		
@@ -814,7 +844,11 @@ namespace DAWEB2.Models
     partial void OnurlHinhChanged();
     partial void OnNgayChanging(System.DateTime value);
     partial void OnNgayChanged();
+<<<<<<< HEAD
     partial void OnidUserChanging(string value);
+=======
+    partial void OnidUserChanging(int value);
+>>>>>>> refs/remotes/origin/master
     partial void OnidUserChanged();
     partial void OnNoiDungChanging(string value);
     partial void OnNoiDungChanged();
@@ -939,8 +973,13 @@ namespace DAWEB2.Models
 			}
 		}
 		
+<<<<<<< HEAD
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string idUser
+=======
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="Int NOT NULL")]
+		public int idUser
+>>>>>>> refs/remotes/origin/master
 		{
 			get
 			{
@@ -1199,7 +1238,11 @@ namespace DAWEB2.Models
 					}
 					else
 					{
+<<<<<<< HEAD
 						this._idUser = default(string);
+=======
+						this._idUser = default(int);
+>>>>>>> refs/remotes/origin/master
 					}
 					this.SendPropertyChanged("User");
 				}
@@ -1411,7 +1454,11 @@ namespace DAWEB2.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+<<<<<<< HEAD
 		private string _idUser;
+=======
+		private int _idUser;
+>>>>>>> refs/remotes/origin/master
 		
 		private string _HoTen;
 		
@@ -1439,7 +1486,11 @@ namespace DAWEB2.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+<<<<<<< HEAD
     partial void OnidUserChanging(string value);
+=======
+    partial void OnidUserChanging(int value);
+>>>>>>> refs/remotes/origin/master
     partial void OnidUserChanged();
     partial void OnHoTenChanging(string value);
     partial void OnHoTenChanged();
@@ -1469,8 +1520,13 @@ namespace DAWEB2.Models
 			OnCreated();
 		}
 		
+<<<<<<< HEAD
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string idUser
+=======
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idUser
+>>>>>>> refs/remotes/origin/master
 		{
 			get
 			{

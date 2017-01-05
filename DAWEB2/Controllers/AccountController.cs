@@ -62,7 +62,11 @@ namespace DAWEB2.Controllers
         }
 
         //
+<<<<<<< HEAD
         // POST: /Account/Login 
+=======
+        // POST: /Account/Login
+>>>>>>> refs/remotes/origin/master
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

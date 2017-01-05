@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 9.625" name="dbLinq">
   <DataContextMoniker Name="/dbLinqDataContext" />
   <nestedChildShapes>
@@ -42,32 +43,81 @@
       <DataClassMoniker Name="/dbLinqDataContext/User" />
       <nestedChildShapes>
         <elementListCompartment Id="011848a3-0226-43d6-88a1-d9396ffd2fbe" absoluteBounds="3.515, 5.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+=======
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="dbLinq">
+  <DataContextMoniker Name="/dbLinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6907a824-d9fb-4259-b676-437684d06101" absoluteBounds="9, 1.625, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/dbLinqDataContext/ComMent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b36a097-e929-4555-9dab-d4dfb53c6a35" absoluteBounds="9.015, 2.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="703022d1-7bfe-4e73-b7bb-08388fe046ed" absoluteBounds="3.5, 1.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbLinqDataContext/LoaiTin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cce5e7bd-c40f-40a5-852e-f1aad4870193" absoluteBounds="3.515, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80969746-733f-4d49-8ba8-0e11f9261029" absoluteBounds="6.25, 1, 2, 3.1170068359375009">
+      <DataClassMoniker Name="/dbLinqDataContext/Tin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ffe79aa-cd9e-4a3c-b964-c80eade6701d" absoluteBounds="6.265, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fb76b10d-d439-4b00-a52b-05f3aeb9ffc4" absoluteBounds="0.75, 1.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/dbLinqDataContext/TheLoai" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f27d1d54-98c1-445c-a18c-5b7c45bfc4fa" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6cc9e112-8057-4ae2-9e37-39515ad137e9" absoluteBounds="3.5, 5.125, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/dbLinqDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be2d8028-adff-4565-a91e-929d8aaff960" absoluteBounds="3.515, 5.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+>>>>>>> refs/remotes/origin/master
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(8.25 : 2.51044840494792); (9 : 2.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbLinqDataContext/Tin/Tin_ComMent" />
       <nodes>
+<<<<<<< HEAD
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
         <classShapeMoniker Id="1656f20d-d118-4123-a789-f49f1c4f8919" />
+=======
+        <classShapeMoniker Id="80969746-733f-4d49-8ba8-0e11f9261029" />
+        <classShapeMoniker Id="6907a824-d9fb-4259-b676-437684d06101" />
+>>>>>>> refs/remotes/origin/master
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 2.53929768880208); (6.25 : 2.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbLinqDataContext/LoaiTin/LoaiTin_Tin" />
       <nodes>
+<<<<<<< HEAD
         <classShapeMoniker Id="a2135676-3686-4e2e-95bf-f95aa82cf138" />
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
+=======
+        <classShapeMoniker Id="703022d1-7bfe-4e73-b7bb-08388fe046ed" />
+        <classShapeMoniker Id="80969746-733f-4d49-8ba8-0e11f9261029" />
+>>>>>>> refs/remotes/origin/master
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 2.56814697265625); (3.5 : 2.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbLinqDataContext/TheLoai/TheLoai_LoaiTin" />
       <nodes>
+<<<<<<< HEAD
         <classShapeMoniker Id="0eac00fa-823b-4c53-974b-e5669c3e23dc" />
         <classShapeMoniker Id="a2135676-3686-4e2e-95bf-f95aa82cf138" />
+=======
+        <classShapeMoniker Id="fb76b10d-d439-4b00-a52b-05f3aeb9ffc4" />
+        <classShapeMoniker Id="703022d1-7bfe-4e73-b7bb-08388fe046ed" />
+>>>>>>> refs/remotes/origin/master
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.75 : 3.2612939453125); (1.75 : 3.75405110677083); (6.25 : 3.75405110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbLinqDataContext/TheLoai/TheLoai_Tin" />
       <nodes>
+<<<<<<< HEAD
         <classShapeMoniker Id="0eac00fa-823b-4c53-974b-e5669c3e23dc" />
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
       </nodes>
@@ -77,6 +127,17 @@
       <nodes>
         <classShapeMoniker Id="8e1a52bb-a8cf-4b4b-9b37-2dfd2e5f43c2" />
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
+=======
+        <classShapeMoniker Id="fb76b10d-d439-4b00-a52b-05f3aeb9ffc4" />
+        <classShapeMoniker Id="80969746-733f-4d49-8ba8-0e11f9261029" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.58735270182292); (7.25 : 6.58735270182292); (7.25 : 4.1170068359375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbLinqDataContext/User/User_Tin" />
+      <nodes>
+        <classShapeMoniker Id="6cc9e112-8057-4ae2-9e37-39515ad137e9" />
+        <classShapeMoniker Id="80969746-733f-4d49-8ba8-0e11f9261029" />
+>>>>>>> refs/remotes/origin/master
       </nodes>
     </associationConnector>
   </nestedChildShapes>

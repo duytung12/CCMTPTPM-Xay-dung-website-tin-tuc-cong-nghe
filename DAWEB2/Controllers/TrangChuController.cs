@@ -126,6 +126,7 @@ namespace DAWEB2.Controllers
         public void EditSoLanXem(int id)
         {
             var a = db.Tins.FirstOrDefault(x => x.idTin == id);
+<<<<<<< HEAD
             a.SoLanXem += 1;
             UpdateModel(db);
             db.SubmitChanges();
@@ -134,5 +135,12 @@ namespace DAWEB2.Controllers
         {
             return View();
         }
+=======
+            a.SoLanXem +=1;
+            UpdateModel(db);
+            db.SubmitChanges(); 
+        }
+
+>>>>>>> refs/remotes/origin/master
     }
 }
