@@ -1,16 +1,9 @@
 ﻿
                     <ul class="nav navbar-nav cl-effect-18" id="cl-effect-18">
-<<<<<<< HEAD
-                        <li class="act"><a href="index" class="effect1 active">Home</a></li>
-                        @foreach (var loaitin in Model)
-                        {
-                            <li><a href="@Url.Action("ViewMenuTop","TrangChu",new { idLT = loaitin.idLoaiTin})">@loaitin.Ten</a></li>
-=======
                         <li class="act"><a href="#" class="effect1 active">Home</a></li>
                         @foreach (var loaitin in Model)
                         {
                             <li><a href="@Url.Action("TrangLoaiTin","TrangChu",new { idLT = loaitin.idLoaiTin})">@loaitin.Ten</a></li>
->>>>>>> refs/remotes/origin/Nhánh-(-du-)
                         }
                         @*<li><a href="events.html">Tin công nghệ</a></li>
                         <li><a href="breaking.html">Tin game</a></li>

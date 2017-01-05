@@ -108,8 +108,6 @@ namespace DAWEB2.Controllers
             return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.TinNoiBat == true).Take(5));
         }
 
-<<<<<<< HEAD
-=======
         public ActionResult CTTin(int id)
         {
             EditSoLanXem(id);
@@ -133,6 +131,5 @@ namespace DAWEB2.Controllers
             db.SubmitChanges(); 
         }
 
->>>>>>> refs/remotes/origin/Nhánh-(-du-)
     }
 }
