@@ -253,6 +253,7 @@
     <Content Include="TemplateMau\images\1.jpg" />
     <Content Include="TemplateMau\images\1.png" />
     <Content Include="TemplateMau\images\10.jpg" />
+<<<<<<< HEAD
     <Content Include="TemplateMau\images\11.jpg" />
     <Content Include="TemplateMau\images\12.jpg" />
     <Content Include="TemplateMau\images\13.jpg" />
@@ -279,6 +280,64 @@
     <Content Include="TemplateMau\images\7.jpg" />
     <Content Include="TemplateMau\images\8.jpg" />
     <Content Include="TemplateMau\images\9.jpg" />
+=======
+    <Content Include="TemplateMau\images\1000.jpg" />
+    <Content Include="TemplateMau\images\11.jpg" />
+    <Content Include="TemplateMau\images\1100.jpg" />
+    <Content Include="TemplateMau\images\111.jpg" />
+    <Content Include="TemplateMau\images\12.jpg" />
+    <Content Include="TemplateMau\images\1200.jpg" />
+    <Content Include="TemplateMau\images\13.jpg" />
+    <Content Include="TemplateMau\images\1300.jpg" />
+    <Content Include="TemplateMau\images\14.jpg" />
+    <Content Include="TemplateMau\images\1400.jpg" />
+    <Content Include="TemplateMau\images\15.jpg" />
+    <Content Include="TemplateMau\images\1500.jpg" />
+    <Content Include="TemplateMau\images\16.jpg" />
+    <Content Include="TemplateMau\images\1600.jpg" />
+    <Content Include="TemplateMau\images\17.jpg" />
+    <Content Include="TemplateMau\images\1700.jpg" />
+    <Content Include="TemplateMau\images\18.jpg" />
+    <Content Include="TemplateMau\images\1800.jpg" />
+    <Content Include="TemplateMau\images\19.jpg" />
+    <Content Include="TemplateMau\images\1900.jpg" />
+    <Content Include="TemplateMau\images\2.jpg" />
+    <Content Include="TemplateMau\images\2.png" />
+    <Content Include="TemplateMau\images\20.jpg" />
+    <Content Include="TemplateMau\images\2000.jpg" />
+    <Content Include="TemplateMau\images\21.jpg" />
+    <Content Include="TemplateMau\images\2100.jpg" />
+    <Content Include="TemplateMau\images\22.jpg" />
+    <Content Include="TemplateMau\images\2200.jpg" />
+    <Content Include="TemplateMau\images\222.jpg" />
+    <Content Include="TemplateMau\images\23.jpg" />
+    <Content Include="TemplateMau\images\2300.jpg" />
+    <Content Include="TemplateMau\images\24.jpg" />
+    <Content Include="TemplateMau\images\2400.jpg" />
+    <Content Include="TemplateMau\images\25.jpg" />
+    <Content Include="TemplateMau\images\2500.jpg" />
+    <Content Include="TemplateMau\images\26.jpg" />
+    <Content Include="TemplateMau\images\2600.jpg" />
+    <Content Include="TemplateMau\images\27.jpg" />
+    <Content Include="TemplateMau\images\2700.jpg" />
+    <Content Include="TemplateMau\images\28.jpg" />
+    <Content Include="TemplateMau\images\2800.jpg" />
+    <Content Include="TemplateMau\images\3.jpg" />
+    <Content Include="TemplateMau\images\3.png" />
+    <Content Include="TemplateMau\images\333.jpg" />
+    <Content Include="TemplateMau\images\4.jpg" />
+    <Content Include="TemplateMau\images\444.jpg" />
+    <Content Include="TemplateMau\images\5.jpg" />
+    <Content Include="TemplateMau\images\555.jpg" />
+    <Content Include="TemplateMau\images\6.jpg" />
+    <Content Include="TemplateMau\images\666.jpg" />
+    <Content Include="TemplateMau\images\7.jpg" />
+    <Content Include="TemplateMau\images\777.jpg" />
+    <Content Include="TemplateMau\images\8.jpg" />
+    <Content Include="TemplateMau\images\888.jpg" />
+    <Content Include="TemplateMau\images\9.jpg" />
+    <Content Include="TemplateMau\images\999.jpg" />
+>>>>>>> refs/remotes/origin/Nhánh-(-du-)
     <Content Include="TemplateMau\images\banner.jpg" />
     <Content Include="TemplateMau\images\close1.png" />
     <Content Include="TemplateMau\images\dott.png" />
@@ -357,6 +416,12 @@
     <Content Include="Views\TrangChu\Lay1TinGameOfHot.cshtml" />
     <Content Include="Views\TrangChu\View4tinGameOfHot.cshtml" />
     <Content Include="Views\TrangChu\TinTucSuKienNoiBat.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\TrangChu\CTTin.cshtml" />
+    <Content Include="Views\TrangChu\CungChuyenMucTrangCTTin.cshtml" />
+    <Content Include="Views\TrangChu\TrangLoaiTin.cshtml" />
+>>>>>>> refs/remotes/origin/Nhánh-(-du-)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

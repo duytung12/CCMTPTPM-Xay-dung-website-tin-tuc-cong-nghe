@@ -108,5 +108,31 @@ namespace DAWEB2.Controllers
             return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.TinNoiBat == true).Take(5));
         }
 
+<<<<<<< HEAD
+=======
+        public ActionResult CTTin(int id)
+        {
+            EditSoLanXem(id);
+            return View(db.Tins.FirstOrDefault(x => x.idTin == id));
+
+        }
+        public ActionResult CungChuyenMucTrangCTTin(int id)
+        {
+            var a = db.Tins.FirstOrDefault(x => x.idTin == id);
+            return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.idLoaiTin == a.idLoaiTin && x.idTin != id).Take(3));
+        }
+        public ActionResult TrangLoaiTin(int idLT)
+        {
+            return View(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.idLoaiTin == idLT).Take(5));
+        }
+        public void EditSoLanXem(int id)
+        {
+            var a = db.Tins.FirstOrDefault(x => x.idTin == id);
+            a.SoLanXem +=1;
+            UpdateModel(db);
+            db.SubmitChanges(); 
+        }
+
+>>>>>>> refs/remotes/origin/Nhánh-(-du-)
     }
 }
