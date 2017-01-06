@@ -1,4 +1,8 @@
-﻿@foreach(var tinNoiBat in Model)
+﻿@using DAWEB2.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Tin>
+
+@foreach(var tinNoiBat in Model)
 { 
         <li>
             <div class="news-grid-left1">
@@ -12,3 +16,7 @@
             <div class="clearfix"> </div>
         </li>
 }
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
+</div>

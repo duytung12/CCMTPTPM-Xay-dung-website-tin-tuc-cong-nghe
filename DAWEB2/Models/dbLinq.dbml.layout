@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 9.625" name="dbLinq">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 11" name="dbLinq">
   <DataContextMoniker Name="/dbLinqDataContext" />
   <nestedChildShapes>
     <classShape Id="1656f20d-d118-4123-a789-f49f1c4f8919" absoluteBounds="9, 1.625, 2, 1.7708968098958329">
@@ -20,12 +20,6 @@
         <elementListCompartment Id="31557f53-4772-43e2-b89d-78ee13ed9797" absoluteBounds="3.515, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e5fb38a2-a9be-48a3-9e8a-0b0dbf74e6d1" absoluteBounds="6.75, 7.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/dbLinqDataContext/Message" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ffc262a6-24d1-4f2b-942a-3c4471d3fa4b" absoluteBounds="6.765, 8.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="6c30b506-85ee-4882-954c-ba8609a6fe40" absoluteBounds="6.25, 1, 2, 3.1170068359375009">
       <DataClassMoniker Name="/dbLinqDataContext/Tin" />
       <nestedChildShapes>
@@ -44,14 +38,14 @@
         <elementListCompartment Id="011848a3-0226-43d6-88a1-d9396ffd2fbe" absoluteBounds="3.515, 5.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 2.51044840494792); (9 : 2.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 2.51044840494792); (9 : 2.51044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbLinqDataContext/Tin/Tin_ComMent" />
       <nodes>
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
         <classShapeMoniker Id="1656f20d-d118-4123-a789-f49f1c4f8919" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 2.53929768880208); (6.25 : 2.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.53929768880208); (6.25 : 2.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbLinqDataContext/LoaiTin/LoaiTin_Tin" />
       <nodes>
         <classShapeMoniker Id="a2135676-3686-4e2e-95bf-f95aa82cf138" />
@@ -65,19 +59,25 @@
         <classShapeMoniker Id="a2135676-3686-4e2e-95bf-f95aa82cf138" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 3.2612939453125); (1.75 : 3.75405110677083); (6.25 : 3.75405110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 3.2612939453125); (1.75 : 3.75405110677083); (6.25 : 3.75405110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbLinqDataContext/TheLoai/TheLoai_Tin" />
       <nodes>
         <classShapeMoniker Id="0eac00fa-823b-4c53-974b-e5669c3e23dc" />
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.34699625651042); (6.46875 : 7.34699625651042); (6.46875 : 4.1170068359375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.34699625651042); (6.46875 : 7.34699625651042); (6.46875 : 4.1170068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dbLinqDataContext/User/User_Tin" />
       <nodes>
         <classShapeMoniker Id="8e1a52bb-a8cf-4b4b-9b37-2dfd2e5f43c2" />
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
       </nodes>
     </associationConnector>
+    <classShape Id="106379c7-901b-478d-aaa1-5fccab8b2e2c" absoluteBounds="8.375, 9, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/dbLinqDataContext/Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7ff6e58-77f9-4128-b601-1da627a3cc42" absoluteBounds="8.39, 9.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

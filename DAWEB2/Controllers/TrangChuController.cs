@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using DAWEB2.Models;
 
+using PagedList;
+using PagedList.Mvc;
+using System.Web.Http;
+
 namespace DAWEB2.Controllers
 {
     public class TrangChuController : Controller
@@ -103,9 +107,13 @@ namespace DAWEB2.Controllers
         {
             return PartialView(db.Tins.OrderByDescending(x => x.SoLanXem).Where(x => x.idLoaiTin == 4).Take(4));
         }
-        public ActionResult TinTucSuKienNoiBat()
+        public ActionResult TinTucSuKienNoiBat(int ? page)
         {
-            return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.TinNoiBat == true).Take(5));
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.TinNoiBat == true).
+                Take(15).ToPagedList(pageNum, pageSize));
+            //return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.TinNoiBat == true).Take(5));
         }
 
         public ActionResult CTTin(int id)
@@ -121,7 +129,9 @@ namespace DAWEB2.Controllers
         }
         public ActionResult TrangLoaiTin(int idLT)
         {
-            return View(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.idLoaiTin == idLT).Take(5));
+
+            return View(db.Tins.OrderByDescending(x => x.Ngay)
+                .Where(x => x.idLoaiTin == idLT).Take(5));
         }
         public void EditSoLanXem(int id)
         {

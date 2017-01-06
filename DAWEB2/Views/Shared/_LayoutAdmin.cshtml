@@ -16,6 +16,8 @@
     <script src="~/HTML5 Admin Template/js/hideshow.js"></script>
     <script src="~/HTML5 Admin Template/js/jquery.tablesorter.min.js"></script>
     <script src="~/HTML5 Admin Template/js/jquery.equalHeight.js"></script>
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
     <script type="text/javascript">
 	$(document).ready(function()
     	{
@@ -76,10 +78,10 @@
             <hr />
             <h3>Content</h3>
             <ul class="toggle">
-                <li class="icn_new_article"><a href="#">Đăng tin</a></li>
-                <li class="icn_edit_article"><a href="#">Quản lý loại tin</a></li>
-                <li class="icn_categories"><a href="#">Quản lý thể loại</a></li>
-                <li class="icn_tags"><a href="#">Tags</a></li>
+                <li class="icn_new_article"><a href="@Url.Action("DangTin","Admin")">Đăng tin</a></li>
+                <li class="icn_edit_article"><a href="@Url.Action("QLTheLoai","Admin")">Quản lý thể loại </a></li>
+                <li class="icn_categories"><a href="#">Quản lý loại tin</a></li>
+                <li class="icn_tags"><a href="@Url.Action("AllTin","Admin")">Tất cả tin tức</a></li>
             </ul>
             <h3>Users</h3>
             <ul class="toggle">
@@ -89,8 +91,8 @@
             </ul>
             <h3>Media</h3>
             <ul class="toggle">
-                <li class="icn_folder"><a href="#">Danh sách email ĐK</a></li>
-                <li class="icn_photo"><a href="#">Phản hồi</a></li>
+                <li class="icn_folder"><a href="@Url.Action("EmailDK","Admin")">Danh sách email ĐK</a></li>
+                <li class="icn_photo"><a href="@Url.Action("PhanHoi","Admin")">Phản hồi</a></li>
             </ul>
             <h3>Admin</h3>
             <ul class="toggle">
@@ -338,3 +340,4 @@
         </section>*@
     </div>
 </body>
+</html>
