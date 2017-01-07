@@ -1,0 +1,43 @@
+﻿@model DAWEB2.Models.PhanQuyen
+@{
+    ViewBag.Title = "SuaQuyen";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section id="main" class="column">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <article class="module width_full">
+            <header><h3>Sửa quyền</h3></header>
+            <div class="module_content">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="MaTW">Tên trang web</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TrangWeb.TenTW, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TrangWeb.TenTW, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="DuocPhep">Được phép vào hay không ?</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DuocPhep, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DuocPhep, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Lưu cập nhật" class="alt_btn">
+                </div>
+            </footer>
+        </article>
+    </section>
+
+}

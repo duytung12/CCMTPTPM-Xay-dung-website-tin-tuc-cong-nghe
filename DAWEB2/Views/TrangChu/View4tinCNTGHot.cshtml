@@ -1,0 +1,9 @@
+﻿@foreach (var tinCNTGHot in Model)
+{
+    <li>
+        <a href="@Url.Action("CTTin","TrangChu",new { id = tinCNTGHot.idTin})">
+            @tinCNTGHot.TieuDe
+        </a>
+    </li>
+}
+

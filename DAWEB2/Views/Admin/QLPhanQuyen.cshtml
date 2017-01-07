@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DAWEB2.Models.VaiTro>
+@{
+    ViewBag.Title = "QLPhanQuyen";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <section id="main" class="column">
+        <article class="module width_3_quarter">
+            <header>
+                <h3 class="tabs_involved">Quản lý phân quyền </h3>
+                <ul class="tabs"></ul>
+            </header>
+            <div class="tab_container">
+                <div id="tab1" class="tab_content">
+                    <table class="tablesorter" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Phân quyền cho </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="color:#0026ff;font-size:15px;"><a href='@Url.Action("PQuyen", new { id = item.MaVT })'>@Html.DisplayFor(modelItem => item.TenVT)</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><!-- end of #tab1 -->
+            </div><!-- end of .tab_container -->
+        </article><!-- end of content manager article -->
+        <div class="clear"></div>
+        <div class="spacer"></div>
+    </section>
+}
+
+
+

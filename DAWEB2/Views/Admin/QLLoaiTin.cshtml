@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DAWEB2.Models.LoaiTin>
+@{
+    ViewBag.Title = "QLLoaiTin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <section id="main" class="column">
+        <article class="module width_3_quarter">
+            <header>
+                <h3 class="tabs_involved">Quản lý loại tin</h3>
+                <ul class="tabs"></ul>
+            </header>
+            <div class="tab_container">
+                <div id="tab1" class="tab_content">
+                    <table class="tablesorter" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Thuộc thể loại</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="color:#0026ff;font-size:15px;">@Html.DisplayFor(modelItem => item.Ten)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)</td>
+                                    <td>
+                                        <a href='@Url.Action("SuaLoaiTin", new { id = item.idLoaiTin })'>
+                                            <img src='@Url.Content("~/HTML5 Admin Template/images/icn_edit.png")' title="Sửa" />
+                                        </a>
+                                        <a href='@Url.Action("XoaLoaiTin", new { id = item.idLoaiTin })'>
+                                            <img src='@Url.Content("~/HTML5 Admin Template/images/icn_trash.png")' title="Xóa" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><!-- end of #tab1 -->
+                <a href="@Url.Action("ThemLoaiTin","Admin")" class="button1 button">Thêm mới loại tin</a>
+            <style>
+                .button {
+                         background-color: #4CAF50; /* Green */
+                         border: none;
+                         color: white;
+                         padding: 16px 32px;
+                         text-align: center;
+                         text-decoration: none;
+                         display: inline-block;
+                         font-size: 16px;
+                         margin: 4px 2px;
+                         -webkit-transition-duration: 0.4s; /* Safari */
+                         transition-duration: 0.4s;
+                         cursor: pointer;
+                        }
+                        .button1 {
+                            background-color: white;
+                            color: black;
+                            border: 2px solid #4CAF50;
+                        }
+                        .button1:hover {
+                              background-color: #4CAF50;
+                              color: white;
+                            }
+            </style>
+            </div><!-- end of .tab_container -->
+        </article><!-- end of content manager article -->
+        <div class="clear"></div>
+        <div class="spacer"></div>
+    </section>
+}
+

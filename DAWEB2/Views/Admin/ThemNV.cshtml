@@ -1,0 +1,170 @@
+﻿@model DAWEB2.Models.User
+@{
+    ViewBag.Title = "ThemNV";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section id="main" class="column">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <article class="module width_full">
+            <header><h3>Thêm nhân viên mới</h3></header>
+            <div class="module_content">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="idUser">ID nhân viên</label>
+                        @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                           @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="text" maxlength="20" required="" name="idUser" />
+                            @Html.ValidationMessageFor(model => model.idUser, "", new { @class = "text-danger" })
+                        </div>
+                        @*@ViewData["ThongBao"]*@
+                        <p style="color:red;font-size:20px;">@ViewBag.ThongBao</p>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="MatKhau">Mật khẩu</label>
+                        @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="text" maxlength="15" required="" name="MatKhau" />
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="HoTen">Họ tên</label>
+                        @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="text" maxlength="50" required="" name="HoTen" />
+                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="DiaChi">Địa chỉ</label>
+                        @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <input type="text" maxlength="100" required="" name="DiaChi" />
+                            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                        </div>
+                    </div><br /><br /><br /><br />
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="DienThoai">Điện thoại</label>
+                            @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="number" maxlength="12" required="" name="DienThoai" 
+                                       style="-webkit-border-radius: 5px;
+                                                -moz-border-radius: 5px;
+                                                border-radius: 5px;
+                                                border: 1px solid #BBBBBB;
+                                                height: 20px;
+                                                color: #666666;
+                                                -webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                padding-left: 10px;
+                                                background-position: 10px 6px;
+                                                margin: 0;
+                                                display: block;
+                                                float: left;
+                                                width: 96%;
+                                                margin: 0 10px;"/>
+                                @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="email" maxlength="50" required="" name="Email"  style="-webkit-border-radius: 5px;
+                                                -moz-border-radius: 5px;
+                                                border-radius: 5px;
+                                                border: 1px solid #BBBBBB;
+                                                height: 20px;
+                                                color: #666666;
+                                                -webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                padding-left: 10px;
+                                                background-position: 10px 6px;
+                                                margin: 0;
+                                                display: block;
+                                                float: left;
+                                                width: 96%;
+                                                margin: 0 10px;"/>
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="NgaySinh">Ngày sinh</label>
+                            @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <input type="date" required="" name="NgaySinh"  style="-webkit-border-radius: 5px;
+                                                -moz-border-radius: 5px;
+                                                border-radius: 5px;
+                                                border: 1px solid #BBBBBB;
+                                                height: 20px;
+                                                color: #666666;
+                                                -webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                padding-left: 10px;
+                                                background-position: 10px 6px;
+                                                margin: 0;
+                                                display: block;
+                                                float: left;
+                                                width: 96%;
+                                                margin: 0 10px;"/>
+                                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="GioiTinh">Giới tính (Nam = tích)</label>
+                            @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.CheckBoxFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="GioiTinh">Vai trò</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("MaVT")
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </fieldset>
+            </div>
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Thêm nhân viên" class="alt_btn">
+                </div>
+            </footer>
+        </article>
+    </section>
+
+}
+
