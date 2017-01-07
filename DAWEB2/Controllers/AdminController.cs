@@ -23,15 +23,14 @@ namespace DAWEB2.Controllers
             {
                 return RedirectToAction("Login", "Admin");
             }
-            else
-            {
-                admin = User;
-            }
             return View();
         }
         #region QL Nhân viên
         public ActionResult QLNhanVien()
         {
+            User admin = (User)Session["Admin"];
+            if (admin.idUser != "admin")
+                return null;
             return View(db.Users.Where(x => x.Active == true).ToList());
         }
         #endregion
@@ -158,11 +157,11 @@ namespace DAWEB2.Controllers
             return View(loaiTin);
         }
         [HttpPost]
-        public ActionResult SuaLoaiTin(int id,LoaiTin loaiTin)
+        public ActionResult SuaLoaiTin(int id, LoaiTin loaiTin)
         {
             var a = db.LoaiTins.FirstOrDefault(x => x.idLoaiTin == id);
             if (a != null)
-            { 
+            {
                 a.Ten = loaiTin.Ten;
                 a.AnhHien = "chuaco";
                 a.idTheLoai = loaiTin.idTheLoai;
@@ -187,7 +186,7 @@ namespace DAWEB2.Controllers
             return View(loaiTin);
         }
         [HttpPost]
-        public ActionResult XoaLoaiTin(int id,FormCollection collection)
+        public ActionResult XoaLoaiTin(int id, FormCollection collection)
         {
             var a = db.LoaiTins.FirstOrDefault(x => x.idLoaiTin == id);
             db.LoaiTins.DeleteOnSubmit(a);
@@ -201,7 +200,7 @@ namespace DAWEB2.Controllers
         {
             int pageNum = (page ?? 1);
             int pageSize = 6;
-            return View(db.DSMails.ToList().ToPagedList(pageNum,pageSize));
+            return View(db.DSMails.ToList().ToPagedList(pageNum, pageSize));
         }
         #endregion
 
@@ -219,7 +218,7 @@ namespace DAWEB2.Controllers
             return View(db.Messages.FirstOrDefault(x => x.idMes == id));
         }
         [HttpPost]
-        public ActionResult TraLoi(Message mes,FormCollection collec)
+        public ActionResult TraLoi(Message mes, FormCollection collec)
         {
             var noidungtraloi = collec["noidungtraloi"];
             SendGmail(mes.Email, "Công Nghệ 24h -  Trả lời phản hồi", noidungtraloi, null);
@@ -268,12 +267,12 @@ namespace DAWEB2.Controllers
             }
             ViewBag.idLoaiTin = new SelectList(db.LoaiTins.ToList().OrderBy(n => n.Ten), "idLoaiTin", "Ten", tin.idLoaiTin);
             ViewBag.idTheLoai = new SelectList(db.TheLoais.ToList().OrderBy(n => n.TenTheLoai), "idTheLoai", "TenTheLoai", tin.idTheLoai);
-        
+
             return View(tin);
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SuaTinTuc(Tin tin,HttpPostedFileBase urlHinh, HttpPostedFileBase AnhHien)
+        public ActionResult SuaTinTuc(Tin tin, HttpPostedFileBase urlHinh, HttpPostedFileBase AnhHien)
         {
             var a = db.Tins.FirstOrDefault(x => x.idTin == tin.idTin);
             if (a == null)
@@ -291,7 +290,7 @@ namespace DAWEB2.Controllers
                     {
                         tin.urlHinh = a.urlHinh;
                     }
-                    if(urlHinh != null)
+                    if (urlHinh != null)
                     {
                         var fileName = Path.GetFileName(urlHinh.FileName);
                         var path = Path.Combine(Server.MapPath("~/TemplateMau/images"), fileName);
@@ -339,11 +338,11 @@ namespace DAWEB2.Controllers
         #endregion
 
         #region AllTIn
-        public ActionResult AllTin(int ? page)
+        public ActionResult AllTin(int? page)
         {
             int pageNum = (page ?? 1);
             int pageSize = 6;
-            return View(db.Tins.ToList().ToPagedList(pageNum,pageSize));
+            return View(db.Tins.ToList().ToPagedList(pageNum, pageSize));
         }
         #endregion
 
@@ -356,11 +355,12 @@ namespace DAWEB2.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateInput(false), AcceptVerbs(HttpVerbs.Post)] 
-        public ActionResult DangTin(Tin tin,HttpPostedFileBase urlHinh, HttpPostedFileBase AnhHien)
+        [ValidateInput(false), AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult DangTin(Tin tin, HttpPostedFileBase urlHinh, HttpPostedFileBase AnhHien)
         {
             ViewBag.idLoaiTin = new SelectList(db.LoaiTins.ToList().OrderBy(n => n.Ten), "idLoaiTin", "Ten");
             ViewBag.idTheLoai = new SelectList(db.TheLoais.ToList().OrderBy(n => n.TenTheLoai), "idTheLoai", "TenTheLoai");
+            User admin = (User)Session["Admin"];
 
             if (ModelState.IsValid)
             {
@@ -391,19 +391,20 @@ namespace DAWEB2.Controllers
 
                 //tin.NoiDung = "tesst";
                 tin.Ngay = DateTime.Now;
-                tin.idUser = 1 + "";
+                //tin.idUser = 1 + "";
+                tin.idUser = admin.idUser;
                 tin.SoLanXem = 0;
                 db.Tins.InsertOnSubmit(tin);
                 db.SubmitChanges();
             }
-            //var dsEmail = db.DSMails.ToList();
-            //var tinNhan = "Click vào link để xem tin bạn nhé ^^."
-            //    + Environment.NewLine +
-            //    "http://congnghe24h.somee.com/TrangChu/CTTin/" + tin.idTin;
-            //foreach (var mail in dsEmail)
-            //{
-            //    SendGmail(mail.Email, "Công Nghệ 24h - Tin mới : "+tin.TieuDe, tinNhan, null);
-            //}
+            var dsEmail = db.DSMails.ToList();
+            var tinNhan = "Click vào link để xem tin bạn nhé ^^."
+                + Environment.NewLine +
+                "http://congnghe24h.somee.com/TrangChu/CTTin/" + tin.idTin;
+            foreach (var mail in dsEmail)
+            {
+                SendGmail(mail.Email, "Công Nghệ 24h - Tin mới : " + tin.TieuDe, tinNhan, null);
+            }
             return RedirectToAction("AllTin");
         }
         #endregion
@@ -415,10 +416,6 @@ namespace DAWEB2.Controllers
             if (admin == null)
             {
                 return RedirectToAction("Login", "Admin");
-            }
-            else
-            {
-                admin = User;
             }
             return View(db.TheLoais.ToList());
         }
@@ -437,7 +434,7 @@ namespace DAWEB2.Controllers
             return View(theLoai);
         }
         [HttpPost]
-        public ActionResult EditTheLoai(TheLoai theLoai, HttpPostedFileBase fileUpLoad,FormCollection collection)
+        public ActionResult EditTheLoai(TheLoai theLoai, HttpPostedFileBase fileUpLoad, FormCollection collection)
         {
             var a = db.TheLoais.FirstOrDefault(x => x.idTheLoai == theLoai.idTheLoai);
             if (ModelState.IsValid)
@@ -485,9 +482,9 @@ namespace DAWEB2.Controllers
         public ActionResult DeleteTheLoai(TheLoai theLoai)
         {
             var a = db.TheLoais.FirstOrDefault(x => x.idTheLoai == theLoai.idTheLoai);
-                db.TheLoais.DeleteOnSubmit(a);
-                db.SubmitChanges();
-                return RedirectToAction("QLTheLoai");
+            db.TheLoais.DeleteOnSubmit(a);
+            db.SubmitChanges();
+            return RedirectToAction("QLTheLoai");
         }
         #endregion
 
@@ -516,7 +513,7 @@ namespace DAWEB2.Controllers
                 x.MatKhau == password && x.Active == true);
                 if (ad != null)
                 {
-                    HttpContext.Session["Admin"] = ad;
+                    Session["Admin"] = ad;
                     return RedirectToAction("Index", "Admin");
                 }
                 else
@@ -601,5 +598,52 @@ namespace DAWEB2.Controllers
             }
         }
         #endregion
+
+        #region Câu chào tên
+        public string CauChaoTen()
+        {
+            User admin = (User)Session["Admin"];
+            return admin.HoTen;
+        }
+        #endregion
+
+        #region Đổi mật khẩu nhân viên
+        public ActionResult ChaneClick()
+        {
+            User admin = (User)Session["Admin"];
+            return PartialView(db.Users.FirstOrDefault(x => x.idUser == admin.idUser));
+        }
+        [HttpGet]
+        public ActionResult ChanePass(string id)
+        {
+            User user = db.Users.FirstOrDefault(x => x.idUser == id);
+            if (user == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult ChanePass(string id, User user,FormCollection collec)
+        {
+            var matKhauMoi = collec["MatKhauMoi"];
+            var xacNhan = collec["XacNhanMatKhau"];
+            if (matKhauMoi.ToString() != xacNhan.ToString())
+            {
+                ViewBag.ThongBao = "Xác nhận password không chính xác .. !";
+                return View();
+            }
+            var timNV = db.Users.FirstOrDefault(x => x.idUser == id);
+            if (timNV != null)
+            {
+                timNV.MatKhau = matKhauMoi.ToString();
+                UpdateModel(timNV);
+                db.SubmitChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        #endregion
+
     }
 }

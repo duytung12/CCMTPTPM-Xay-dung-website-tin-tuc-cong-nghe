@@ -23,7 +23,7 @@
 </head>
 <body>
     <!-- banner -->
-    <div class="banner">
+    @*<div class="banner">
         <div class="banner-info">
             <div class="container">
                 <nav class="navbar navbar-default">
@@ -43,7 +43,7 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                        @Html.Action("ViewMenuTop", "TrangChu")
+                        @Html.Action("ViewMenuTopLayTheLoai", "TrangChu")
                     </div><!-- /.navbar-collapse -->
 
                 </nav>
@@ -71,112 +71,43 @@
                 </script>
                 <div id="top" class="callbacks_container">
                     <ul class="rslides" id="slider3">
-
                         @Html.Action("ViewBannerTop", "TrangChu")
-
-
-                        @*<li>
-                            <div class="banner-info-slider">
-                                <ul>
-                                    <li><a href="single.html">politics</a></li>
-                                    <li>25 Dec 2015</li>
-                                </ul>
-                                <h1>The Hunters breaking an Ebola ban on Bushmeat</h1>
-                                <p>
-                                    Ebola is a viral illness of which the initial
-                                    symptoms can include a sudden fever, intense weakness,
-                                    muscle pain and a sore throat.<span>By <i>ullamcoman</i> and <i>Micheal smithjos.</i></span>
-                                </p>
-                                <div class="more">
-                                    <a href="single.html" class="type-1">
-                                        <span> Read More </span>
-                                        <span> Read More </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="banner-info-slider">
-                                <ul>
-                                    <li><a href="single.html">Business</a></li>
-                                    <li>25 Dec 2015</li>
-                                </ul>
-                                <h1>magna perspiciatis unde omnis iste natus errors</h1>
-                                <p>
-                                    Dolore ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span>By <i>laborisman</i> and <i>Adom smithjos.</i></span>
-                                </p>
-                                <div class="more">
-                                    <a href="single.html" class="type-1">
-                                        <span> Read More </span>
-                                        <span> Read More </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="banner-info-slider">
-                                <ul>
-                                    <li><a href="single.html">sports</a></li>
-                                    <li>25 Dec 2015</li>
-                                </ul>
-                                <h1>Sed ut perspiciatis unde omnis iste natus errors</h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span>By <i>ullamcoman</i> and <i>Micheal smithjos.</i></span>
-                                </p>
-                                <div class="more">
-                                    <a href="single.html" class="type-1">
-                                        <span> Read More </span>
-                                        <span> Read More </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="banner-info-slider">
-                                <ul>
-                                    <li><a href="single.html">general</a></li>
-                                    <li>25 Dec 2015</li>
-                                </ul>
-                                <h1>Sed ut perspiciatis unde omnis iste natus errors</h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span>By <i>ullamcoman</i> and <i>Micheal smithjos.</i></span>
-                                </p>
-                                <div class="more">
-                                    <a href="single.html" class="type-1">
-                                        <span> Read More </span>
-                                        <span> Read More </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="banner-info-slider">
-                                <ul>
-                                    <li><a href="single.html">international</a></li>
-                                    <li>25 Dec 2015</li>
-                                </ul>
-                                <h1>Sed ut perspiciatis unde omnis iste natus errors</h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span>By <i>ullamcoman</i> and <i>Micheal smithjos.</i></span>
-                                </p>
-                                <div class="more">
-                                    <a href="single.html" class="type-1">
-                                        <span> Read More </span>
-                                        <span> Read More </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>*@
+                      
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     <!-- banner -->
+    <div class="banner1">
+        <div class="banner-info1">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo">
+                            <a class="navbar-brand" href="@Url.Action("Index", "TrangChu")"><span>24H</span> Cong Nghe </a>
+                        </div>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav cl-effect-18" id="cl-effect-18">
+                                @Html.Action("ViewMenuTopLayTheLoai", "TrangChu")
+                            </ul>
+                    </div><!-- /.navbar-collapse -->
+
+                </nav>
+            </div>
+        </div>
+    </div>
+
     <div> @RenderBody()</div>
 
     <!-- //banner-bottom -->
@@ -184,7 +115,7 @@
     <div class="footer-top">
         <div class="container">
             <p>
-                 - TTV TEAM
+                 - TV TEAM
             </p>
         </div>
     </div>
@@ -196,21 +127,19 @@
                     <ul>
                         <li>
                             <a href="#">
-                                the moment an unlimited #antares rocket exploded seconds after launch
-                                <i>http//example.com</i>
-                            </a><span>15 minutes ago</span>
+                                Tin tức nhanh nhất thế giới
+                                <i>http//congnghe24h.somee.com</i>
+                            </a><span>Cập nhật tin tức từng phút</span>
                         </li>
                         <li>
                             <a href="#">
-                                gathering data on failure #antares rocket bound
-                                for international space
-                            </a><span>45 minutes ago</span>
+                                Với đội ngủ nhân viên pro
+                            </a><span>Kiếm tin cực nhanh và chính xác</span>
                         </li>
                         <li>
                             <a href="#">
-                                ex-cabinet minister chris huhne loses legal challenge over $77,750
-                                court costs incurred in speeding points
-                            </a><span>1 day ago</span>
+                                abc xyz :))
+                            </a><span>bla bla</span>
                         </li>
                     </ul>
                 </div>
@@ -221,18 +150,18 @@
                 <div class="col-md-4 footer-grid-left">
                     <h3>Về chúng tôi</h3>
                     <p>
-                        Nhóm 3 - 13DTHC02 - Lập trình web
+                        Đồ án chuyên ngành
                         <span>
-                            Tùng, Toàn, Vũ
+                            Tùng, Vũ
                         </span>
-                        <i>- TTV TEAM</i>
+                        <i>- TV TEAM</i>
                     </p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-left">
-                    <p>- TTV TEAM</p>
+                    <p>- TV TEAM</p>
                 </div>
                 <div class="footer-bottom-right">
                     <ul>

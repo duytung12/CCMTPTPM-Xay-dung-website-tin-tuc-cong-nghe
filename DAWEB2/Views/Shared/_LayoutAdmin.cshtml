@@ -55,7 +55,7 @@
     <div>
         <header id="header">
             <hgroup>
-                <h1 class="site_title"><a href="index.html">Website Admin</a></h1>
+                <h1 class="site_title"><a>Website Admin</a></h1>
                 <h2 class="section_title"></h2>
                 <div class="btn_view_site"><a href="@Url.Action("Index", "TrangChu")">Trang chủ</a></div>
             </hgroup>
@@ -63,11 +63,13 @@
 
         <section id="secondary_bar">
             <div class="user">
-                <p>John Doe (<a href="#">3 Messages</a>)</p>
+                <p>
+                    Chào @Html.Action("CauChaoTen", "Admin")
+                </p>
                 <!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
             </div>
             <div class="breadcrumbs_container">
-                <article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
+                <article class="breadcrumbs"><a>Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Quản lý</a></article>
             </div>
         </section><!-- end of secondary bar -->
 
@@ -86,9 +88,9 @@
             <h3>Users</h3>
             <ul class="toggle">
                 <li class="icn_view_users"><a href="@Url.Action("QLNhanVien","Admin")">Quản lý nhân viên</a></li>
-                <li class="icn_profile"><a href="#">Thông tin của bạn</a></li>
+                <li class="icn_profile">@Html.Action("ChaneClick","Admin")</li>
             </ul>
-            <h3>Media</h3>
+            <h3>Email</h3>
             <ul class="toggle">
                 <li class="icn_folder"><a href="@Url.Action("EmailDK","Admin")">Danh sách email ĐK</a></li>
                 <li class="icn_photo"><a href="@Url.Action("PhanHoi","Admin")">Phản hồi</a></li>
@@ -102,8 +104,8 @@
 
             <footer>
                 <hr />
-                <p><strong>Copyright &copy; 2011 Website Admin</strong></p>
-                <p>Theme by <a href="http://www.medialoot.com">MediaLoot</a></p>
+                <p><strong>TTV TEAM &copy; 2016 WEDSITE ADMIN</strong></p>
+                <p>Hân hạnh</p>
             </footer>
         </aside><!-- end of sidebar -->
         <div>

@@ -107,7 +107,7 @@ namespace DAWEB2.Controllers
         {
             return PartialView(db.Tins.OrderByDescending(x => x.SoLanXem).Where(x => x.idLoaiTin == 4).Take(4));
         }
-        public ActionResult TinTucSuKienNoiBat(int ? page)
+        public ActionResult TinTucSuKienNoiBat(int? page)
         {
             int pageSize = 5;
             int pageNum = (page ?? 1);
@@ -144,5 +144,39 @@ namespace DAWEB2.Controllers
         {
             return View();
         }
+        #region bổ sung 
+        public ActionResult ViewMenuTopLayTheLoai()
+        { // ptView nay dung de load loai tin vao menutop
+            var theLoai = db.TheLoais.ToList();
+            return PartialView(theLoai);
+        }
+        public ActionResult TrangTheloai(int idTL)
+        {
+            return View(db.Tins.OrderByDescending(x => x.Ngay)
+                .Where(x => x.idTheLoai == idTL).Take(5));
+        }
+        public string PTVLayTieuDeTheLoai(int idTL)
+        {
+            return db.Tins.FirstOrDefault(x => x.idTheLoai == idTL).TheLoai.TenTheLoai;
+        }
+        public ActionResult PTVDanhMucTinTheoLoaiTin(int idTL) // dùng cho trang Thể loại - đáng lẽ là theo thể loại mà ghi nhầm
+        {
+            return PartialView(db.LoaiTins.Where(x => x.idTheLoai == idTL).ToList());
+        }
+        public ActionResult PTVDanhMucTinTheoLoaiTin1(int idLT) // dùng cho trang Loại tin
+        {
+            int layidTheLoai = db.Tins.FirstOrDefault(x => x.idLoaiTin == idLT).TheLoai.idTheLoai;
+            return PartialView(db.LoaiTins.Where(x => x.idTheLoai == layidTheLoai).ToList());
+        }
+        public ActionResult PTVTinNoiBat() // dùng cho trang thể loại,loại tin
+        {
+            return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.TinNoiBat == true).
+              Take(5));
+        }
+        public string PTVLayTieuDeLoaiTin(int idLT)
+        {
+            return db.Tins.FirstOrDefault(x => x.idLoaiTin == idLT).LoaiTin.Ten;
+        }
+        #endregion
     }
 }

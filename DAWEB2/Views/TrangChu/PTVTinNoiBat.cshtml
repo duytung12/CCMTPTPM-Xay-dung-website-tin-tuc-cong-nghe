@@ -1,0 +1,13 @@
+﻿@foreach(var tin in Model)
+{ 
+             <div class="tab_list">
+                 <img src="~/TemplateMau/images/@tin.urlHinh" alt="" class="img-responsive">
+             </div>
+             <div class="tab_list1">
+                 <ul>
+                     <li><a href="@Url.Action("TrangTheLoai","TrangChu",new { idTL = tin.idTheLoai})" class="orange2">@tin.TheLoai.TenTheLoai</a> <label>|</label></li>
+                 </ul>
+                 <p><a href="@Url.Action("CTTin","TrangChu",new { id = tin.idTin})">@tin.TieuDe</a></p>
+             </div>
+             <div class="clearfix"> </div>
+}

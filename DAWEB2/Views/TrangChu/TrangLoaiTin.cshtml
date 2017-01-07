@@ -10,7 +10,7 @@
             <div class="news">
                 <div class="news-grids">
                     <div class="col-md-8 news-grid-left">
-                        <h3>Tin bạn muốn xem</h3>
+                        <h3>@Html.Action("PTVLayTieuDeLoaiTin", "TrangChu")</h3>
                         <ul>
                             @foreach (var tin in Model)
                             {
@@ -34,44 +34,32 @@
                         <div class="news-grid-rght1">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a class="high" href="#home" aria-controls="home" role="tab" data-toggle="tab">Thời tiết</a></li>
+                                <li role="presentation" class="active"><a class="high" href="#home" aria-controls="home" role="tab" data-toggle="tab">Danh mục loại tin</a></li>
                             </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active london" id="home">
-                                    <ul>
-                                        <li>
-                                            <h4>Wednesday</h4>
-                                            <span></span>
-                                            <p>21<sup>°</sup></p>
-                                        </li>
-                                        <li>
-                                            <h4>Thursday</h4>
-                                            <span class="moon"></span>
-                                            <p>25<sup>°</sup></p>
-                                        </li>
-                                        <li>
-                                            <h4>Friday</h4>
-                                            <span class="sun"></span>
-                                            <p>31<sup>°</sup></p>
-                                        </li>
-                                        <div class="clearfix"> </div>
-                                    </ul>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="profile">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26359652.109742895!2d-113.72446020222534!3d36.24602872499641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1450786850582" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <ul style="margin-left:8%;">
+                                @Html.Action("PTVDanhMucTinTheoLoaiTin1", "TrangChu")
+                            </ul>
+                        </div>
+                        <div class="video-grids">
+                            <div class="video-grids-right">
+                                <div class="sap_tabs">
+                                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                                        <ul class="resp-tabs-list">
+                                            <li class="resp-tab-item grid1 resp-tab-active" aria-controls="tab_item-0" role="tab"><span>Tin nổi bật</span></li>
+                                            <div class="clear"></div>
+                                        </ul>
+                                        <div class="resp-tabs-container">
+                                            <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>most shared</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
+                                                <div class="facts">
+                                                    @Html.Action("PTVTinNoiBat", "TrangChu")
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="news-grid-rght2">
-                            <h3>theo dõi bản tin của chúng tôi</h3>
-                            <p>Nhận được tin tức và sự kiện mới nhát về công nghệ và game. Mang đến thông tin nhanh chóng bổ ích cho bạn.</p>
-                            <form>
-                                <input type="text" value="enter your Email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'enter your Email address';}">
-                                <input type="submit" value="Submit">
-                            </form>
-                        </div>
+
                     </div>
                     <div class="clearfix"> </div>
                 </div>
