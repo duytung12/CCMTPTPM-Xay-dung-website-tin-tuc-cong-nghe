@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Tin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="single">
+    <div class="container">
+        <div class="single-grid">
+            <div class="col-md-8 blog-left">
+                <div class="blog-left-grid">
+                    <div class="blog-leftl">
+                        <h4>@Model.Ngay <span></span></h4>
+                        <a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
+                    </div>
+                    <div class="blog-leftr">
+                        <img src="~/TemplateMau/images/@Model.AnhHien" alt="" class="img-responsive">
+                        <h3 style="margin-top:10px;color:#27B311;font-size:1.2em;font-weight:300;text-transform:uppercase">@Model.TieuDe</h3>
+                        <p>
+                            @HttpUtility.HtmlDecode(@Model.NoiDung)
+                        </p>
+                    </div>
+                    <div class="clearfix"> </div>
+
+                    <div id="fb-root"></div>
+                    <script>
+                    (function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=314836848902656";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="response">
+                        <div class="fb-comments" style="margin-left:20%;" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 blog-right">
+                <h3>CHUYÊN MỤC GÌ ĐÓ</h3>
+                <ul>
+                    <li>abc</li>
+                    <li>abc</li>
+                    <li>abc</li>
+                   <li>abc</li>
+                </ul>
+                <div class="recent">
+                    <h3>Cùng chuyên mục</h3>
+                    <div class="recent-grids">
+                       @Html.Action("CungChuyenMucTrangCTTin","TrangChu")
+                    </div>
+                </div>
+                <div class="footer-top-grid1">
+                    <h3>Recent Tags</h3>
+                    <ul class="tag2">
+                        <li><a href="#">awesome</a></li>
+                        <li><a href="#">strategy</a></li>
+                        <li><a href="#">development</a></li>
+                    </ul>
+                    <ul class="tag2">
+                        <li><a href="#">css</a></li>
+                        <li><a href="#">photoshop</a></li>
+                        <li><a href="#">photography</a></li>
+                        <li><a href="#">html</a></li>
+                    </ul>
+                    <ul class="tag2">
+                        <li><a href="#">awesome</a></li>
+                        <li><a href="#">strategy</a></li>
+                        <li><a href="#">development</a></li>
+                    </ul>
+                    <ul class="tag2">
+                        <li><a href="#">css</a></li>
+                        <li><a href="#">photoshop</a></li>
+                        <li><a href="#">photography</a></li>
+                        <li><a href="#">html</a></li>
+                    </ul>
+                    <ul class="tag2">
+                        <li><a href="#">awesome</a></li>
+                        <li><a href="#">strategy</a></li>
+                        <li><a href="#">development</a></li>
+                    </ul>
+                </div>
+                <div class="poll">
+                    <h3>Poll</h3>
+                    <div class="progress p">
+                        <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            60%
+                        </div>
+                    </div>
+                    <div class="progress p">
+                        <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                            80%
+                        </div>
+                    </div>
+                    <div class="progress p">
+                        <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                            90%
+                        </div>
+                    </div>
+                    <div class="progress p">
+                        <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                            40%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
