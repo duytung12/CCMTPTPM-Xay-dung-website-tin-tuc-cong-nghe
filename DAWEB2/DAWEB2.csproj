@@ -383,6 +383,7 @@
     <Content Include="TemplateMau\images\dott.png" />
     <Content Include="TemplateMau\images\dott1.png" />
     <Content Include="TemplateMau\images\icon1.png" />
+    <Content Include="TemplateMau\images\icon_search.png" />
     <Content Include="TemplateMau\images\img-sp.png" />
     <Content Include="TemplateMau\images\left.png" />
     <Content Include="TemplateMau\images\right.png" />
@@ -585,6 +586,8 @@
     <Content Include="Views\TrangChu\PTVDanhMucTinTheoLoaiTin1.cshtml" />
     <Content Include="Views\TrangChu\PTVTinNoiBat.cshtml" />
     <Content Include="Views\TrangChu\PTVLayTieuDeLoaiTin.cshtml" />
+    <Content Include="Views\TrangChu\PTVTimKiem.cshtml" />
+    <Content Include="Views\TrangChu\TimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

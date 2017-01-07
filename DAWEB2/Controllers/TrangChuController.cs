@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DAWEB2.Models;
-
 using PagedList;
 using PagedList.Mvc;
 using System.Web.Http;
+using System.Text;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace DAWEB2.Controllers
 {
@@ -120,7 +122,6 @@ namespace DAWEB2.Controllers
         {
             EditSoLanXem(id);
             return View(db.Tins.FirstOrDefault(x => x.idTin == id));
-
         }
         public ActionResult CungChuyenMucTrangCTTin(int id)
         {
@@ -177,6 +178,61 @@ namespace DAWEB2.Controllers
         {
             return db.Tins.FirstOrDefault(x => x.idLoaiTin == idLT).LoaiTin.Ten;
         }
+        [System.Web.Mvc.HttpGet]
+        public PartialViewResult PTVTimKiem()
+        {
+            return PartialView();
+        }
+        [System.Web.Mvc.HttpPost]
+        public PartialViewResult PTVTimKiem(FormCollection collec)
+        {
+            string tuKhoaTimKiem = collec["timkiem"];
+            string timchuaLower = RemoveUnicode(tuKhoaTimKiem);
+            if (timchuaLower == null) return null;
+            string timdaLower = timchuaLower.ToLower();
+            Response.Redirect("~/TrangChu/TimKiem?id=" + timdaLower);
+            return PartialView();
+        }
+        public static string RemoveUnicode(string s) // đổi chữ có dấu sang ko dấu 
+        {
+            if (s == null)
+            { return null; }
+            string stFormD = s.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new StringBuilder();
+            for (int ich = 0; ich < stFormD.Length; ich++)
+            {
+                UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(stFormD[ich]);
+                if (uc != UnicodeCategory.NonSpacingMark)
+                    sb.Append(stFormD[ich]);
+            }
+            return (sb.ToString().Normalize(NormalizationForm.FormC));
+        }
+        #region Ham kiem tra email
+        static public bool EmailHopLe(string email)
+        {
+            if (email == null) return false;
+            string emailRegex = @"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$";
+            Regex re = new Regex(emailRegex);
+            return re.IsMatch(email);
+        }
+        #endregion
+
+        public ActionResult TimKiem(string id)
+        {
+            var a = db.Tins.ToList();
+            List<Tin> listTinCanTim = new List<Tin>();
+            foreach (var i in a)
+            {
+                string tenTinCanTimChuaLower = RemoveUnicode(i.TieuDe);
+                string tenTinCanTimDaLower = tenTinCanTimChuaLower.ToLower();
+                if (tenTinCanTimDaLower.Contains(id))
+                {
+                    listTinCanTim.Add(i);
+                }
+            }
+            return View(listTinCanTim);
+        }
+
         #endregion
     }
 }

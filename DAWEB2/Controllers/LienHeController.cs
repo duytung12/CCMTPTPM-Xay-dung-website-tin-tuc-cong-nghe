@@ -20,6 +20,7 @@ namespace DAWEB2.Controllers
         #region Ham kiem tra email
         static public bool EmailHopLe(string email)
         {
+            if (email == null) return false;
             string emailRegex = @"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$";
             Regex re = new Regex(emailRegex);
             return re.IsMatch(email);
@@ -32,8 +33,11 @@ namespace DAWEB2.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public PartialViewResult lienhe3(Message me)
+        public PartialViewResult lienhe3(Message me,FormCollection collec)
         {
+            string noidung = collec["Mess"];
+            if (noidung == null) return PartialView();
+            if (noidung == "Tin nhắn...") return PartialView();
             db.Messages.InsertOnSubmit(me);
             db.SubmitChanges();
             return PartialView();
@@ -53,24 +57,26 @@ namespace DAWEB2.Controllers
             return PartialView();
         }
 
-        [HttpGet]
+        [System.Web.Mvc.HttpGet]
         public PartialViewResult DangKyNhanTinMoi() // danh cho trang chu
         {
             return PartialView();
         }
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         [ValidateInput(false)]
         public PartialViewResult DangKyNhanTinMoi(DSMail ds, FormCollection collec)
         {
-            var email = collec["Email"];
-            if (EmailHopLe(email))
+            if (ModelState.IsValid)
             {
-                db.DSMails.InsertOnSubmit(ds);
-                db.SubmitChanges();
-            }
-            else
-            {
-                
+                var email = collec["email"];
+                if (EmailHopLe(email))
+                {
+                    db.DSMails.InsertOnSubmit(ds);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                }
             }
             return PartialView();
         }
