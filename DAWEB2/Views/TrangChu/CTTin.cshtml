@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "SanPham";
+    ViewBag.Title = "Tin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -17,7 +17,7 @@
                         <img src="~/TemplateMau/images/@Model.AnhHien" alt="" class="img-responsive">
                         <h3 style="margin-top:10px;color:#27B311;font-size:1.2em;font-weight:300;text-transform:uppercase">@Model.TieuDe</h3>
                         <p>
-                            @Model.NoiDung
+                            @HttpUtility.HtmlDecode(@Model.NoiDung)
                         </p>
                     </div>
                     <div class="clearfix"> </div>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 11" name="dbLinq">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="dbLinq">
   <DataContextMoniker Name="/dbLinqDataContext" />
   <nestedChildShapes>
     <classShape Id="1656f20d-d118-4123-a789-f49f1c4f8919" absoluteBounds="9, 1.625, 2, 1.7708968098958329">
@@ -73,10 +73,10 @@
         <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
       </nodes>
     </associationConnector>
-    <classShape Id="106379c7-901b-478d-aaa1-5fccab8b2e2c" absoluteBounds="8.375, 9, 2, 1.7708968098958331">
+    <classShape Id="02274d2b-ee45-4407-b15e-08f7a8bb3345" absoluteBounds="9.875, 6.375, 2, 1.7708968098958331">
       <DataClassMoniker Name="/dbLinqDataContext/Message" />
       <nestedChildShapes>
-        <elementListCompartment Id="c7ff6e58-77f9-4128-b601-1da627a3cc42" absoluteBounds="8.39, 9.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="382969ea-9953-4be0-a066-eaced0309bdb" absoluteBounds="9.89, 6.8350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

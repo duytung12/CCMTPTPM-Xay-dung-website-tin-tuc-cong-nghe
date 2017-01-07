@@ -75,7 +75,7 @@
     <Type Name="Message">
       <Column Name="idMes" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Mess" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="TinhTrang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>

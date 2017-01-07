@@ -1,8 +1,8 @@
 ﻿@model DAWEB2.Models.Message
-@using (Html.BeginForm())
+
+@*@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <!-- Phần nhập phản hồi người dùng dưới dạng Partial View ( Họ Tên, Email, Phản hồi) -->
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true)
@@ -37,6 +37,25 @@
                 <input type="submit" value="Gửi" class="btn btn-default" />
             </div>
         </div>
+    </div>
+}*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Phần nhập phản hồi người dùng dưới dạng Partial View ( Họ Tên, Email, Phản hồi) -->
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <form>
+            <label for="Hoten"></label>
+            <input type="text" name="Hoten" id="Hoten" value="Nhập họ tên của bạn" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nhập họ tên của bạn';}" required="">
+            <label for="email"></label>
+            <input type="email" name="Email" id="email" value="Nhập email của bạn" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email...';}" required="">
+            <label for="Mess"></label>
+            <textarea name="Mess" id="Mess" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tin nhắn...';}" required="">Tin nhắn...</textarea>
+            <input type="submit" value="Gửi">
+        </form>
     </div>
 }
   

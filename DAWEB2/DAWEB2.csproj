@@ -565,6 +565,16 @@
     <Content Include="Views\Admin\XoaTinTuc.cshtml" />
     <Content Include="Views\Admin\PhanHoi.cshtml" />
     <Content Include="Views\Admin\TraLoi.cshtml" />
+    <Content Include="Views\Admin\EmailDK.cshtml" />
+    <Content Include="Views\Admin\QLLoaiTin.cshtml" />
+    <Content Include="Views\Admin\ThemLoaiTin.cshtml" />
+    <Content Include="Views\Admin\SuaLoaiTin.cshtml" />
+    <Content Include="Views\Admin\XoaLoaiTin.cshtml" />
+    <Content Include="Views\LienHe\DangKyNhanTinMoi.cshtml" />
+    <Content Include="Views\Admin\QLNhanVien.cshtml" />
+    <Content Include="Views\Admin\ThemNV.cshtml" />
+    <Content Include="Views\Admin\SuaNV.cshtml" />
+    <Content Include="Views\Admin\XoaNV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
