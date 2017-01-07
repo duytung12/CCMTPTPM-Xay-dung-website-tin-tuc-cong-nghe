@@ -1,0 +1,130 @@
+﻿@*@model IEnumerable<DAWEB2.Models.Tin>*@
+@using DAWEB2.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DAWEB2.Models.Tin>
+
+@{
+    ViewBag.Title = "AllTin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h2>AllTin</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLanXem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinNoiBat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLanXem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinNoiBat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTin }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTin }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTin })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <section id="main" class="column">
+        <article class="module width_3_quarter">
+            <header>
+                <h3 class="tabs_involved">Danh sách tin tức</h3>
+                <ul class="tabs"></ul>
+            </header>
+            <div class="tab_container">
+                <div id="tab1" class="tab_content">
+                    <table class="tablesorter" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tiêu đề tin</th>
+                                <th>Ngày đăng</th>
+                                <th>Số lần xem</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="color:#0026ff;font-size:15px;">@Html.DisplayFor(modelItem => item.TieuDe)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Ngay)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SoLanXem)</td>
+                                    <td>
+                                        <a href='@Url.Action("SuaTinTuc", new { id = item.idTin })'>
+                                            <img src='@Url.Content("~/HTML5 Admin Template/images/icn_edit.png")' title="Sửa"/>
+                                        </a>
+                                        <a href='@Url.Action("XoaTinTuc", new { id = item.idTin })'>
+                                            <img src='@Url.Content("~/HTML5 Admin Template/images/icn_trash.png")' title="Xóa" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                <div class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("AllTin", new { page }))
+                </div>
+                    <style>
+                        ul.pagination {
+                            display: inline-block;
+                            padding: 0;
+                            margin: 0;
+                        }
+                            ul.pagination li {
+                                display: inline;
+                            }
+                                ul.pagination li a {
+                                    color: black;
+                                    float: left;
+                                    padding: 8px 16px;
+                                    text-decoration: none;
+                                }
+                                    ul.pagination li a.active {
+                                        background-color: #ff6a00;
+                                        color: white;
+                                    }
+                                    ul.pagination li a:hover:not(.active) {
+                                        background-color: #ddd;
+                                    }
+                    </style>
+                </div><!-- end of #tab1 -->
+
+
+            </div><!-- end of .tab_container -->
+
+        </article><!-- end of content manager article -->
+
+
+        <div class="clear"></div>
+        <div class="spacer"></div>
+    </section>
+}

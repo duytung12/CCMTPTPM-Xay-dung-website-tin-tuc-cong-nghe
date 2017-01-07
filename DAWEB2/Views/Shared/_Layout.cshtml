@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Cong Nghe 24h </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    @*----------------TemplateMauMau*@
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="~/TemplateMau/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/TemplateMau/css/style.css" rel="stylesheet" />
+    <!-- js -->
+    <script src="~/TemplateMau/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    @*------------------EndTemplateMau*@
+
+    <script type="text/javascript">
+  // dung cho menu cuộn theo
+        jQuery(document).ready(function ($) {
+            //selector đến menu cần làm việc
+            var TopFixMenu = $("#fixNav");
+            TopFixMenu.hide();
+            // dùng sự kiện cuộn chuột để bắt thông tin đã cuộn được chiều dài là bao nhiêu.
+            $(window).scroll(function () {
+                // Nếu cuộn được hơn 500px rồi
+                if ($(this).scrollTop() > 300) {
+                    // Tiến hành show menu ra
+                    TopFixMenu.show();
+                } else {
+                    // Ngược lại, nhỏ hơn 500px thì hide menu đi.
+                    TopFixMenu.hide();
+                }
+            }
+            )
+        })
+    </script>
+    <style>
+         #fixNav{
+              width: 100%;
+              height: 55px;
+              background-color: #0082bb;
+              display: block;
+              box-shadow: 0px 2px 2px rgba(0,0,0,0.5); /*Đổ bóng cho menu*/
+              position: fixed; /*Cho menu cố định 1 vị trí với top và left*/
+              top: 0; /*Nằm trên cùng*/
+              left: 0px; /*Nằm sát bên trái*/
+              z-index: 100000; /*Hiển thị lớp trên cùng*/
+            }
+    </style>
+</head>
+<body>
+    <!-- banner -->
+    @*<div class="banner">
+        <div class="banner-info">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <!-- 3 dấu ngoặc (menu thu nhỏ) sử dụng điện thoại -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo">
+                            <a class="navbar-brand" href="@Url.Action("Index", "TrangChu")"><span>24H</span> Cong Nghe </a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        @Html.Action("ViewMenuTopLayTheLoai", "TrangChu")
+                    </div><!-- /.navbar-collapse -->
+
+                </nav>
+                <!--banner-Slider-->
+                <script src="~/TemplateMau/js/responsiveslides.min.js"></script>
+                <script>
+							// You can also use "$(window).load(function() {"
+							$(function () {
+							  // Slideshow 4
+							  $("#slider3").responsiveSlides({
+							auto: true,
+							pager: true,
+							nav:true,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+							  $('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+							  $('.events').append("<li>after event fired.</li>");
+							}
+							  });
+
+							});
+                </script>
+                <div id="top" class="callbacks_container">
+                    <ul class="rslides" id="slider3">
+                        @Html.Action("ViewBannerTop", "TrangChu")
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <!-- banner -->
+    <div class="banner1">
+        <div class="banner-info1">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo">
+                            <a class="navbar-brand" href="@Url.Action("Index", "TrangChu")"><span>24H</span> Cong Nghe </a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav cl-effect-18" id="cl-effect-18">
+                                @Html.Action("ViewMenuTopLayTheLoai", "TrangChu")
+                            </ul>
+                    </div>
+                    <!--Menu cuộn theo trang-->
+                    <div id="fixNav">
+                        <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav cl-effect-18">
+                                @Html.Action("PTVTimKiem", "TrangChu")
+                            </ul>
+                            <ul class="nav navbar-nav cl-effect-18" id="cl-effect-18">
+                                @Html.Action("ViewMenuTopLayTheLoai", "TrangChu")
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End menu cuộn theo trang-->
+
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div> @RenderBody()</div>
+
+    <!-- //banner-bottom -->
+    <!-- footer -->
+    <div class="footer-top">
+        <div class="container">
+            <p>
+                 - TV TEAM
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-4 footer-grid-left">
+                    <h3>twitter feed</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Tin tức nhanh nhất thế giới
+                                <i>http//congnghe24h.somee.com</i>
+                            </a><span>Cập nhật tin tức từng phút</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Với đội ngủ nhân viên pro
+                            </a><span>Kiếm tin cực nhanh và chính xác</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                abc xyz :))
+                            </a><span>bla bla</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-grid-left">
+                    <h3>Liên hệ</h3>
+                    @Html.Action("lienhe3", "LienHe")
+                </div>
+                <div class="col-md-4 footer-grid-left">
+                    <h3>Về chúng tôi</h3>
+                    <p>
+                        Đồ án chuyên ngành
+                        <span>
+                            Tùng, Vũ
+                        </span>
+                        <i>- TV TEAM</i>
+                    </p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>- TV TEAM</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <ul>
+                        <li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
+                        <li><a href="#" class="icon-button google"><i class="icon-google"></i><span></span></a></li>
+                        <li><a href="#" class="icon-button v"><i class="icon-v"></i><span></span></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- for bootstrap working -->
+    <script src="js/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+
+
+</body>
+</html>

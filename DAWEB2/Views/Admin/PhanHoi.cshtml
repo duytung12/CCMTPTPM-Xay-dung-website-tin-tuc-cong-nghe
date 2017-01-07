@@ -1,0 +1,94 @@
+﻿@model IEnumerable<DAWEB2.Models.Message>
+
+@{
+    ViewBag.Title = "PhanHoi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Hoten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hoten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMes }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMes }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMes })
+        </td>
+    </tr>
+}
+
+</table>*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <section id="main" class="column">
+        <article class="module width_3_quarter">
+            <header>
+                <h3 class="tabs_involved">Danh sách phản hồi</h3>
+                <ul class="tabs"></ul>
+            </header>
+            <div class="tab_container">
+                <div id="tab1" class="tab_content">
+                    <table class="tablesorter" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>Tin nhắn</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(model => item.Hoten)</td>
+                                    <td>@Html.DisplayFor(model => item.Email)</td>
+                                    <td>@Html.DisplayFor(model => item.Mess)</td>
+                                    <td>
+                                        <a href='@Url.Action("TraLoi", new { id = item.idMes })'>
+                                            <img height="27" width="27" src='@Url.Content("~/HTML5 Admin Template/images/iconmessage.png")' title="Phản hồi lại" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </article>
+        <div class="clear"></div>
+        <div class="spacer"></div>
+    </section>
+}

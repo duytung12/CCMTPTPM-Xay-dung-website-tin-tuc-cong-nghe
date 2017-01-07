@@ -1,0 +1,101 @@
+﻿@model DAWEB2.Models.Tin
+@{
+    ViewBag.Title = "DangTin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm("DangTin","Admin",FormMethod.Post,new { @enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    <section id="main" class="column">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <article class="module width_full">
+            <header><h3>Thêm tin mới</h3></header>
+            <div class="module_content">
+                <fieldset>
+                    <label for="TieuDe">Tiêu đề</label>
+                    @*@Html.LabelFor(model => model.TieuDe, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TieuDe, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TieuDe, "", new { @class = "text-danger" })
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="TomTat">Tóm tắt</label>
+                  @*  @Html.LabelFor(model => model.TomTat, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TomTat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TomTat, "", new { @class = "text-danger" })
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="idTheLoai">Thể loại</label>
+                   @* @Html.LabelFor(model => model.idTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div style="border-radius: 5px;
+                                                border: 1px solid #BBBBBB;
+                                                height: 20px;
+                                                color: #666666;
+                                                -webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                padding-left: 10px;
+                                                background-position: 10px 6px;
+                                                margin: 0;
+                                                display: block;
+                                                float: left;
+                                                width: 96%;
+                                                margin: 0 10px;">
+                        @Html.DropDownList("idTheLoai")
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="idLoaiTin">Loại tin</label>
+                    @*@Html.LabelFor(model => model.idLoaiTin, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div style="border-radius: 5px;
+                                                border: 1px solid #BBBBBB;
+                                                height: 20px;
+                                                color: #666666;
+                                                -webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
+                                                padding-left: 10px;
+                                                background-position: 10px 6px;
+                                                margin: 0;
+                                                display: block;
+                                                float: left;
+                                                width: 96%;
+                                                margin: 0 10px;">
+                        @Html.DropDownList("idLoaiTin") 
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="TinNoiBat">Thuộc nhóm tin nổi bật</label>
+                    @Html.CheckBoxFor(model => model.TinNoiBat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*<input type="checkbox" name="TinNoiBat" />*@
+                </fieldset>
+             
+                <fieldset>
+                    <label for="urlHinh">Hình ở trang chủ</label>
+                  @*  @Html.LabelFor(model => model.urlHinh, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <input type="file" name="urlHinh" class="btn-danger" />
+                </fieldset>
+                <fieldset>
+                    <label for="AnhHien">Hình ở trang chi tiết</label>
+                   @* @Html.LabelFor(model => model.AnhHien, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <input type="file" name="AnhHien" class="btn-danger" />
+                </fieldset>
+                <fieldset>
+                    <label for="NoiDung">Nội dung</label>
+                   @* @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <textarea rows="12" name="NoiDung"></textarea>
+                </fieldset>
+            </div>
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Đăng" class="alt_btn">
+                </div>
+            </footer>
+        </article>
+    </section>
+
+}
+

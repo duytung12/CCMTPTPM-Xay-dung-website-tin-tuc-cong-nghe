@@ -1,0 +1,23 @@
+﻿<article class="module width_full">
+    <header><h3>Thêm thể loại mới</h3></header>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="module_content">
+        <fieldset>
+            <label>Tên thể Loại</label>
+            <input type="text" name="tentheloai" required>
+        </fieldset>
+        <fieldset>
+            <label>Thêm hình ảnh</label>
+            <input type="file" name="fileUpload" class="btn-danger" />
+        </fieldset>
+        <div class="clear"></div>
+    </div>
+    <footer>
+        <div class="submit_link">
+            <input type="submit" value="Thêm" class="alt_btn">
+        </div>
+    </footer>
+}
+</article><!-- end of post new article -->

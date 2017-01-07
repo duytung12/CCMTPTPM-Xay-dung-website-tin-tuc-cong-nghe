@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="dbLinq">
+  <DataContextMoniker Name="/dbLinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1656f20d-d118-4123-a789-f49f1c4f8919" absoluteBounds="9, 1.625, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/dbLinqDataContext/ComMent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb918b38-d0a9-4328-965a-8dad43253b8b" absoluteBounds="9.015, 2.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1126803-c0bf-4223-9f38-52b0449bc7bc" absoluteBounds="6.75, 5.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbLinqDataContext/DSMail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="268a8848-b455-418e-9d30-a3bc617e7551" absoluteBounds="6.765, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2135676-3686-4e2e-95bf-f95aa82cf138" absoluteBounds="3.5, 1.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbLinqDataContext/LoaiTin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31557f53-4772-43e2-b89d-78ee13ed9797" absoluteBounds="3.515, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6c30b506-85ee-4882-954c-ba8609a6fe40" absoluteBounds="6.25, 1, 2, 3.1170068359375009">
+      <DataClassMoniker Name="/dbLinqDataContext/Tin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9544a259-6ba9-47af-aa0f-5938b8076a97" absoluteBounds="6.265, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0eac00fa-823b-4c53-974b-e5669c3e23dc" absoluteBounds="0.75, 1.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/dbLinqDataContext/TheLoai" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6af90cce-efda-4bb1-9178-82acae3c2a18" absoluteBounds="0.765, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e1a52bb-a8cf-4b4b-9b37-2dfd2e5f43c2" absoluteBounds="3.5, 5.125, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/dbLinqDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="011848a3-0226-43d6-88a1-d9396ffd2fbe" absoluteBounds="3.515, 5.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 2.51044840494792); (9 : 2.51044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbLinqDataContext/Tin/Tin_ComMent" />
+      <nodes>
+        <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
+        <classShapeMoniker Id="1656f20d-d118-4123-a789-f49f1c4f8919" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.53929768880208); (6.25 : 2.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbLinqDataContext/LoaiTin/LoaiTin_Tin" />
+      <nodes>
+        <classShapeMoniker Id="a2135676-3686-4e2e-95bf-f95aa82cf138" />
+        <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.56814697265625); (3.5 : 2.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbLinqDataContext/TheLoai/TheLoai_LoaiTin" />
+      <nodes>
+        <classShapeMoniker Id="0eac00fa-823b-4c53-974b-e5669c3e23dc" />
+        <classShapeMoniker Id="a2135676-3686-4e2e-95bf-f95aa82cf138" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 3.2612939453125); (1.75 : 3.75405110677083); (6.25 : 3.75405110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbLinqDataContext/TheLoai/TheLoai_Tin" />
+      <nodes>
+        <classShapeMoniker Id="0eac00fa-823b-4c53-974b-e5669c3e23dc" />
+        <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.34699625651042); (6.46875 : 7.34699625651042); (6.46875 : 4.1170068359375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbLinqDataContext/User/User_Tin" />
+      <nodes>
+        <classShapeMoniker Id="8e1a52bb-a8cf-4b4b-9b37-2dfd2e5f43c2" />
+        <classShapeMoniker Id="6c30b506-85ee-4882-954c-ba8609a6fe40" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="02274d2b-ee45-4407-b15e-08f7a8bb3345" absoluteBounds="9.875, 6.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/dbLinqDataContext/Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="382969ea-9953-4be0-a066-eaced0309bdb" absoluteBounds="9.89, 6.8350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
