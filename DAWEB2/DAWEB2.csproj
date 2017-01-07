@@ -588,6 +588,13 @@
     <Content Include="Views\TrangChu\PTVLayTieuDeLoaiTin.cshtml" />
     <Content Include="Views\TrangChu\PTVTimKiem.cshtml" />
     <Content Include="Views\TrangChu\TimKiem.cshtml" />
+    <Content Include="Views\Admin\QLVaiTro.cshtml" />
+    <Content Include="Views\Admin\ThemVT.cshtml" />
+    <Content Include="Views\Admin\SuaVT.cshtml" />
+    <Content Include="Views\Admin\XoaVT.cshtml" />
+    <Content Include="Views\Admin\QLPhanQuyen.cshtml" />
+    <Content Include="Views\Admin\PQuyen.cshtml" />
+    <Content Include="Views\Admin\SuaQuyen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

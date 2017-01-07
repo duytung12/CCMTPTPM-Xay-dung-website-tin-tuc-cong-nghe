@@ -39,23 +39,6 @@
                             @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
                                  @Html.EditorFor(model => model.DienThoai, new { htmlAttributes = new { @class = "form-control" } })
-                                <input type="number" maxlength="12" required="" name="DienThoai"
-                                       style="-webkit-border-radius: 5px;
-                                                -moz-border-radius: 5px;
-                                                border-radius: 5px;
-                                                border: 1px solid #BBBBBB;
-                                                height: 20px;
-                                                color: #666666;
-                                                -webkit-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
-                                                -moz-box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
-                                                box-shadow: inset 0 2px 2px #ccc, 0 1px 0 #fff;
-                                                padding-left: 10px;
-                                                background-position: 10px 6px;
-                                                margin: 0;
-                                                display: block;
-                                                float: left;
-                                                width: 96%;
-                                                margin: 0 10px;" />
                                 @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -122,6 +105,16 @@
                             </div>
                         </div>
                     </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="GioiTinh">Vai trò</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("MaVT")
+                            </div>
+                        </div>
+                    </fieldset>
+
                 </fieldset>
             </div>
             <footer>

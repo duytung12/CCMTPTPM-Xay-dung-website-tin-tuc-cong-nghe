@@ -10,6 +10,7 @@ using PagedList.Mvc;
 using System.Net.Mail;
 using System.Net;
 
+
 namespace DAWEB2.Controllers
 {
     public class AdminController : Controller
@@ -25,13 +26,143 @@ namespace DAWEB2.Controllers
             }
             return View();
         }
+
+        #region Quản lý phân quyền
+        public ActionResult QLPhanQuyen()
+        {
+            KiemTraQuyen();
+            return View(db.VaiTros.Where(x => x.MaVT != 1).ToList());
+        }
+
+        #endregion
+
+        #region Xem các quyền ứng vs các trang web ....
+        [HttpGet]
+        public ActionResult PQuyen(int id)
+        {
+            var phanQuyen = db.PhanQuyens.Where(x => x.MaVT == id).ToList();
+            return View(phanQuyen);
+        }
+        #endregion
+
+        #region bắt đầu chỉnh sửa quyền
+
+        public ActionResult SuaQuyen(int id)
+        {
+            return View(db.PhanQuyens.FirstOrDefault(x => x.MaPQ == id));
+        }
+        [HttpPost]
+        public ActionResult SuaQuyen(int id, PhanQuyen pq)
+        {
+            var a = db.PhanQuyens.FirstOrDefault(x => x.MaPQ == id);
+            a.DuocPhep = pq.DuocPhep;
+            UpdateModel(a);
+            db.SubmitChanges();
+            Response.Redirect("~/Admin/PQuyen/" + a.MaVT);
+            return View();
+        }
+        #endregion
+
+        #region QL Vai trò
+        public ActionResult QLVaiTro()
+        {
+            KiemTraQuyen();
+            return View(db.VaiTros.Where(x => x.MaVT != 1).ToList());
+        }
+        #endregion
+
+        #region Thêm vai trò
+        [HttpGet]
+        public ActionResult ThemVT()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemVT(VaiTro vaiTro)
+        {
+            db.VaiTros.InsertOnSubmit(vaiTro);
+            db.SubmitChanges();
+
+            for (int i = 1; i < 10; i++)
+            { // cái này dùng để khi vừa tạo mới 1 vai trò thì vai trò này sẽ được mặc định quyền vào
+              // 9 trang đều là false. Mún chỉnh sửa quyền cho vai trò mới này thì vào quản lý phân quyền 
+              // để chỉnh sửa -  và người chỉnh sửa phải là admin.
+                PhanQuyen a = new PhanQuyen();
+                a.MaTW = i;
+                a.MaVT = vaiTro.MaVT;
+                a.DuocPhep = false;
+                db.PhanQuyens.InsertOnSubmit(a);
+                db.SubmitChanges();
+            }
+            return RedirectToAction("QLVaiTro");
+        }
+        #endregion
+
+        #region Sửa vai trò
+        [HttpGet]
+        public ActionResult SuaVT(int id)
+        {
+            return View(db.VaiTros.FirstOrDefault(x => x.MaVT == id));
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaVT(VaiTro vaiTro, int id)
+        {
+            var a = db.VaiTros.FirstOrDefault(x => x.MaVT == id);
+            if (a != null)
+            {
+                a.TenVT = vaiTro.TenVT;
+                a.MoTa = "chuaco";
+            }
+            UpdateModel(a);
+            db.SubmitChanges();
+            return RedirectToAction("QLVaiTro");
+        }
+        #endregion
+
+        #region Xóa vai trò
+        [HttpGet]
+        public ActionResult XoaVT(int id)
+        {
+            VaiTro vaiTro = db.VaiTros.FirstOrDefault(x => x.MaVT == id);
+            if (vaiTro == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(vaiTro);
+        }
+        [HttpPost]
+        public ActionResult XoaVT(int id, FormCollection collection)
+        {
+            var c = db.Users.FirstOrDefault(x => x.MaVT == id); // dùng để ko cho xóa khi còn nhân viên 
+            //đảm nhận chức vụ này
+            if (c != null) return View();
+
+            var a = db.VaiTros.FirstOrDefault(x => x.MaVT == id);
+            for (int i = 1; i < 10; i++)
+            { // cái này dùng để xóa hết tất cả những cái đã phân quyền trước đó cho vai trò này.Xóa trong
+                // bảng phân quyền
+                PhanQuyen ab = db.PhanQuyens.FirstOrDefault(x => x.MaTW == i && x.MaVT == id);
+                db.PhanQuyens.DeleteOnSubmit(ab);
+                db.SubmitChanges();
+            }
+            db.VaiTros.DeleteOnSubmit(a);
+            db.SubmitChanges();
+            return RedirectToAction("QLVaiTro");
+        }
+
+        #endregion
+
         #region QL Nhân viên
         public ActionResult QLNhanVien()
         {
-            User admin = (User)Session["Admin"];
-            if (admin.idUser != "admin")
-                return null;
-            return View(db.Users.Where(x => x.Active == true).ToList());
+            KiemTraQuyen();
+            //User admin = (User)Session["Admin"];
+            //if (admin.idUser != "admin")
+            //    return null;
+            return View(db.Users.Where(x => x.Active == true && x.MaVT != 1).ToList());
         }
         #endregion
 
@@ -39,11 +170,13 @@ namespace DAWEB2.Controllers
         [HttpGet]
         public ActionResult ThemNV()
         {
+            ViewBag.MaVT = new SelectList(db.VaiTros.ToList().OrderBy(n => n.TenVT), "MaVT", "TenVT");
             return View();
         }
         [HttpPost]
         public ActionResult ThemNV(User user, FormCollection collec)
         {
+            ViewBag.MaVT = new SelectList(db.VaiTros.ToList().OrderBy(n => n.TenVT), "MaVT", "TenVT");
             var tenDN = collec["idUser"];
             var kiemTraId = db.Users.FirstOrDefault(x => x.idUser == tenDN);
             if (kiemTraId != null)
@@ -75,6 +208,7 @@ namespace DAWEB2.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
+            ViewBag.MaVT = new SelectList(db.VaiTros.ToList().OrderBy(n => n.TenVT), "MaVT", "TenVT", user.MaVT);
             return View(user);
         }
         [HttpPost]
@@ -83,6 +217,7 @@ namespace DAWEB2.Controllers
             var timNV = db.Users.FirstOrDefault(x => x.idUser == id);
             if (timNV != null)
             {
+                ViewBag.MaVT = new SelectList(db.VaiTros.ToList().OrderBy(n => n.TenVT), "MaVT", "TenVT");
                 UpdateModel(timNV);
                 db.SubmitChanges();
             }
@@ -119,6 +254,7 @@ namespace DAWEB2.Controllers
         #region QL LoaiTin
         public ActionResult QLLoaiTin()
         {
+            KiemTraQuyen();
             return View(db.LoaiTins.ToList());
         }
         #endregion
@@ -198,6 +334,7 @@ namespace DAWEB2.Controllers
         #region DS Email đăng ký
         public ActionResult EmailDK(int? page)
         {
+            KiemTraQuyen();
             int pageNum = (page ?? 1);
             int pageSize = 6;
             return View(db.DSMails.ToList().ToPagedList(pageNum, pageSize));
@@ -207,6 +344,7 @@ namespace DAWEB2.Controllers
         #region Danh sách phản hồi
         public ActionResult PhanHoi()
         {
+            KiemTraQuyen();
             return View(db.Messages.Where(x => x.TinhTrang == null).ToList());
         }
         #endregion
@@ -340,6 +478,7 @@ namespace DAWEB2.Controllers
         #region AllTIn
         public ActionResult AllTin(int? page)
         {
+            KiemTraQuyen();
             int pageNum = (page ?? 1);
             int pageSize = 6;
             return View(db.Tins.ToList().ToPagedList(pageNum, pageSize));
@@ -350,6 +489,7 @@ namespace DAWEB2.Controllers
         [HttpGet]
         public ActionResult DangTin()
         {
+            KiemTraQuyen();
             ViewBag.idLoaiTin = new SelectList(db.LoaiTins.ToList().OrderBy(n => n.Ten), "idLoaiTin", "Ten");
             ViewBag.idTheLoai = new SelectList(db.TheLoais.ToList().OrderBy(n => n.TenTheLoai), "idTheLoai", "TenTheLoai");
             return View();
@@ -412,11 +552,7 @@ namespace DAWEB2.Controllers
         #region QL The Loai
         public ActionResult QLTheLoai()
         {
-            var admin = Session["Admin"];
-            if (admin == null)
-            {
-                return RedirectToAction("Login", "Admin");
-            }
+            KiemTraQuyen();
             return View(db.TheLoais.ToList());
         }
         #endregion
@@ -625,7 +761,7 @@ namespace DAWEB2.Controllers
             return View(user);
         }
         [HttpPost]
-        public ActionResult ChanePass(string id, User user,FormCollection collec)
+        public ActionResult ChanePass(string id, User user, FormCollection collec)
         {
             var matKhauMoi = collec["MatKhauMoi"];
             var xacNhan = collec["XacNhanMatKhau"];
@@ -642,6 +778,29 @@ namespace DAWEB2.Controllers
                 db.SubmitChanges();
             }
             return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region Kiểm soát quyền trước khi vào các trang
+        void KiemTraQuyen()
+        {
+            User admin = (User)Session["Admin"];
+            if (admin == null)
+            {
+                Response.Redirect("~/Admin/Login");
+            }
+            else
+            {
+                string url = Request.RawUrl;
+                string tenTW = url.Substring(url.LastIndexOf('/') + 1);
+                var listPQ = db.PhanQuyens.Where(x => x.MaVT == admin.MaVT).ToList();
+                var diem = 0;
+                foreach (var a in listPQ)
+                {
+                    if (a.TrangWeb.TenTW == tenTW && a.DuocPhep == true) diem = 1;
+                }
+                if (diem != 1)  Response.Redirect("KoCoTrangNay");
+            }
         }
         #endregion
 

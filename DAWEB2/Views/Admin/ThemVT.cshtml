@@ -1,0 +1,35 @@
+﻿@model DAWEB2.Models.VaiTro
+@{
+    ViewBag.Title = "ThemVT";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section id="main" class="column">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <article class="module width_full">
+            <header><h3>Thêm vai trò mới</h3></header>
+            <div class="module_content">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="TenVT">Tên vai trò</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TenVT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenVT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Thêm vai trò" class="alt_btn">
+                </div>
+            </footer>
+        </article>
+    </section>
+}
+
+
+

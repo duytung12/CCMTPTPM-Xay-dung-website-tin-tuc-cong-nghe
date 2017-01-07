@@ -85,9 +85,11 @@
                 <li class="icn_categories"><a href="@Url.Action("QLLoaiTin","Admin")">Quản lý loại tin</a></li>
                 <li class="icn_tags"><a href="@Url.Action("AllTin","Admin")">Tất cả tin tức</a></li>
             </ul>
-            <h3>Users</h3>
+            <h3>Admin - Quản lý</h3>
             <ul class="toggle">
                 <li class="icn_view_users"><a href="@Url.Action("QLNhanVien","Admin")">Quản lý nhân viên</a></li>
+                <li class="icn_view_users"><a href="@Url.Action("QLVaiTro","Admin")">Quản lý vai trò</a></li>
+                <li class="icn_settings"><a href="@Url.Action("QLPhanQuyen","Admin")">Phân quyền người dùng</a></li>
                 <li class="icn_profile">@Html.Action("ChaneClick","Admin")</li>
             </ul>
             <h3>Email</h3>
@@ -95,16 +97,14 @@
                 <li class="icn_folder"><a href="@Url.Action("EmailDK","Admin")">Danh sách email ĐK</a></li>
                 <li class="icn_photo"><a href="@Url.Action("PhanHoi","Admin")">Phản hồi</a></li>
             </ul>
-            <h3>Admin</h3>
+            <h3>Chức năng khác</h3>
             <ul class="toggle">
-                <li class="icn_settings"><a href="#">Cài đặt</a></li>
-                <li class="icn_security"><a href="#">Bảo mật - phân quyền</a></li>
                 <li class="icn_jump_back"><a href="#">Thoát</a></li>
             </ul>
 
             <footer>
                 <hr />
-                <p><strong>TTV TEAM &copy; 2016 WEDSITE ADMIN</strong></p>
+                <p><strong>TV TEAM &copy; 2016 WEDSITE ADMIN</strong></p>
                 <p>Hân hạnh</p>
             </footer>
         </aside><!-- end of sidebar -->
