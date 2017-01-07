@@ -1,0 +1,11 @@
+﻿
+
+    <li class="act"><a href="@Url.Action("Index", "TrangChu")" class="effect1 active">Home</a></li>
+    @foreach (var theLoai in Model)
+    {
+        <li><a href="@Url.Action("TrangTheLoai","TrangChu",new { idTL = theLoai.idTheLoai})">@theLoai.TenTheLoai</a></li>
+    }
+    <li><a href="@Url.Action("Index", "LienHe")">Liên Hệ</a></li>
+
+
+

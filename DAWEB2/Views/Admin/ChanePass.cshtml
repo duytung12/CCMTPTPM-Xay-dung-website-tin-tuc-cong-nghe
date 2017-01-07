@@ -1,0 +1,54 @@
+﻿@model DAWEB2.Models.User
+@{
+    ViewBag.Title = "ChanePass";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section id="main" class="column">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <article class="module width_full">
+            <header><h3>Chane password ?</h3></header>
+            <div class="module_content">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="HoTen">Họ tên bạn là ?</label>
+                        @*@Html.LabelFor(model => model.Ten, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                            @* <input type="text" maxlength="50" required="" name="HoTen" />*@
+                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="HoTen">Mật khẩu mới</label>
+                        <div class="col-md-10">
+                             <input type="password" maxlength="15" required="" name="MatKhauMoi" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="HoTen">Xác nhận mật khẩu mới</label>
+                        <div class="col-md-10">
+                            <input type="password" maxlength="15" required="" name="XacNhanMatKhau" />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <p style="color:red;font-size:15px;margin-left:20px;">@ViewBag.ThongBao</p>
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Đổi password" class="alt_btn">
+                </div>
+            </footer>
+        </article>
+    </section>
+
+}
+
+
