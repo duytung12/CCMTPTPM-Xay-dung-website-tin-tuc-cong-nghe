@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TinTucWeb" Class="dbLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-D6N2UR3;Initial Catalog=TinTucWeb;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TinTucWebConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TinTucWeb2" Class="dbLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-D6N2UR3;Initial Catalog=TinTucWeb2;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TinTucWeb2ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ComMent" Member="ComMents">
     <Type Name="ComMent">
       <Column Name="idComMent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -8,6 +8,12 @@
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="idTin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Tin_ComMent" Member="Tin" ThisKey="idTin" OtherKey="idTin" Type="Tin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DSMail" Member="DSMails">
+    <Type Name="DSMail">
+      <Column Name="idMail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.LoaiTin" Member="LoaiTins">
@@ -20,6 +26,25 @@
       <Association Name="TheLoai_LoaiTin" Member="TheLoai" ThisKey="idTheLoai" OtherKey="idTheLoai" Type="TheLoai" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Message" Member="Messages">
+    <Type Name="Message">
+      <Column Name="idMes" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mess" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhanQuyen" Member="PhanQuyens">
+    <Type Name="PhanQuyen">
+      <Column Name="MaPQ" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaVT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaTW" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DuocPhep" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="TrangWeb_PhanQuyen" Member="TrangWeb" ThisKey="MaTW" OtherKey="MaTW" Type="TrangWeb" IsForeignKey="true" />
+      <Association Name="VaiTro_PhanQuyen" Member="VaiTro" ThisKey="MaVT" OtherKey="MaVT" Type="VaiTro" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Tin" Member="Tins">
     <Type Name="Tin">
       <Column Name="idTin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -27,7 +52,7 @@
       <Column Name="TomTat" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="urlHinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Ngay" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="idUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="idLoaiTin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idTheLoai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -49,9 +74,17 @@
       <Association Name="TheLoai_Tin" Member="Tins" ThisKey="idTheLoai" OtherKey="idTheLoai" Type="Tin" />
     </Type>
   </Table>
+  <Table Name="dbo.TrangWeb" Member="TrangWebs">
+    <Type Name="TrangWeb">
+      <Column Name="MaTW" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTW" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TrangWeb_PhanQuyen" Member="PhanQuyens" ThisKey="MaTW" OtherKey="MaTW" Type="PhanQuyen" />
+    </Type>
+  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
-      <Column Name="idUser" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MatKhau" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
@@ -62,7 +95,18 @@
       <Column Name="NgaySinh" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MaVT" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="User_Tin" Member="Tins" ThisKey="idUser" OtherKey="idUser" Type="Tin" />
+      <Association Name="VaiTro_User" Member="VaiTro" ThisKey="MaVT" OtherKey="MaVT" Type="VaiTro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VaiTro" Member="VaiTros">
+    <Type Name="VaiTro">
+      <Column Name="MaVT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenVT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="VaiTro_PhanQuyen" Member="PhanQuyens" ThisKey="MaVT" OtherKey="MaVT" Type="PhanQuyen" />
+      <Association Name="VaiTro_User" Member="Users" ThisKey="MaVT" OtherKey="MaVT" Type="User" />
     </Type>
   </Table>
 </Database>

@@ -1,7 +1,7 @@
 ﻿@foreach (var tinCNTNHot in Model)
 {
     <li>
-        <a href="@Url.Action("View4tinCNTNHot","TrangChu",new { id = tinCNTNHot.idTin})">
+        <a href="@Url.Action("CTTin","TrangChu",new { id = tinCNTNHot.idTin})">
             @tinCNTNHot.TieuDe
         </a>
     </li>

@@ -1,0 +1,56 @@
+﻿@model DAWEB2.Models.TheLoai
+
+@{
+    ViewBag.Title = "DeleteTheLoai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm("DeleteTheLoai", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <section id="main" class="column">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.idTheLoai)
+        <article class="module width_full">
+            <header><h3>Xóa Thể loại này ?</h3></header>
+            <div class="module_content">
+                <fieldset>
+                    <div class="form-group">
+                        <label>Tên thể loại</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TenTheLoai, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenTheLoai, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <img name="hinhanh" src="@Url.Content("~/TemplateMau/images/" + Model.AnhHien)" style="height:200px;width:200px" />(Ảnh hiện tại)
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <div class="clear"></div>
+            </div>
+            <footer>
+                <div class="submit_link">
+
+                    <input type="submit" value="Delete" class="alt_btn">
+                </div>
+            </footer>
+        </article> @*end of post new article*@
+
+
+    </section>
+}
+
+
+
+
+
+
+

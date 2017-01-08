@@ -130,61 +130,6 @@
                     <h3>Tin tức & sự kiện nổi bật</h3>
                     <ul>
                         @Html.Action("TinTucSuKienNoiBat", "TrangChu")
-                        @*<li>
-                            <div class="news-grid-left1">
-                                <img src="~/Template/images/16.jpg" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="news-grid-right1">
-                                <h4><a href="single.html">Mexico's oil giant is in uncharted waters</a></h4>
-                                <h5>By <a href="#">Elizibeth Malkin</a> <label>|</label> <i>31.12.2015</i></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </li>
-                        <li>
-                            <div class="news-grid-left1">
-                                <img src="~/Template/images/17.jpg" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="news-grid-right1">
-                                <h4><a href="single.html">second wave of votes to legalize marijuana</a></h4>
-                                <h5>By <a href="#">james smith</a> <label>|</label> <i>31.12.2015</i></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </li>
-                        <li>
-                            <div class="news-grid-left1">
-                                <img src="~/Template/images/13.jpg" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="news-grid-right1">
-                                <h4><a href="single.html">Antares rocket, bound for space station, explodes</a></h4>
-                                <h5>By <a href="#">Michael Drew</a> <label>|</label> <i>31.12.2015</i></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </li>
-                        <li>
-                            <div class="news-grid-left1">
-                                <img src="~/Template/images/12.jpg" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="news-grid-right1">
-                                <h4><a href="single.html">stronger family bonds, two years after hurricane sandy</a></h4>
-                                <h5>By <a href="#">james smith</a> <label>|</label> <i>31.12.2015</i></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </li>
-                        <li>
-                            <div class="news-grid-left1">
-                                <img src="~/Template/images/15.jpg" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="news-grid-right1">
-                                <h4><a href="single.html">royal crush giants and force game 7</a></h4>
-                                <h5>By <a href="#">Michael Drew</a> <label>|</label> <i>31.12.2015</i></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </li>*@
                     </ul>
                 </div>
                 <div class="col-md-4 news-grid-right">
@@ -197,24 +142,12 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active london" id="home">
-                                <ul>
-                                    <li>
-                                        <h4>Wednesday</h4>
-                                        <span></span>
-                                        <p>21<sup>°</sup></p>
-                                    </li>
-                                    <li>
-                                        <h4>Thursday</h4>
-                                        <span class="moon"></span>
-                                        <p>25<sup>°</sup></p>
-                                    </li>
-                                    <li>
-                                        <h4>Friday</h4>
-                                        <span class="sun"></span>
-                                        <p>31<sup>°</sup></p>
-                                    </li>
-                                    <div class="clearfix"> </div>
-                                </ul>
+                                <a href="http://www.accuweather.com/vi/vn/ho-chi-minh-city/353981/weather-forecast/353981" class="aw-widget-legal">
+                                    <!--
+                                    By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
+                                    -->
+                                </a><div id="awcc1478101273486" class="aw-widget-current" data-locationkey="" data-unit="c" data-language="vi" data-useip="true" data-uid="awcc1478101273486"></div>
+                                <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26359652.109742895!2d-113.72446020222534!3d36.24602872499641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1450786850582" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -222,12 +155,7 @@
                         </div>
                     </div>
                     <div class="news-grid-rght2">
-                        <h3>theo dõi bản tin của chúng tôi</h3>
-                        <p>Nhận được tin tức và sự kiện mới nhát về công nghệ và game. Mang đến thông tin nhanh chóng bổ ích cho bạn.</p>
-                        <form>
-                            <input type="text" value="enter your Email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'enter your Email address';}">
-                            <input type="submit" value="Submit">
-                        </form>
+                        @Html.Action("DangKyNhanTinMoi", "LienHe")
                     </div>
                 </div>
                 <div class="clearfix"> </div>

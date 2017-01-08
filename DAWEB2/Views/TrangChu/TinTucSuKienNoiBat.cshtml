@@ -1,14 +1,22 @@
-﻿@foreach(var tinNoiBat in Model)
+﻿@using DAWEB2.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Tin>
+
+@foreach(var tinNoiBat in Model)
 { 
         <li>
             <div class="news-grid-left1">
                 <img src="~/TemplateMau/images/@tinNoiBat.urlHinh" alt="" class="img-responsive" />
             </div>
             <div class="news-grid-right1">
-                <h4><a href="@Url.Action("TinTucSuKienNoiBat","TrangChu",new { id = tinNoiBat.idTin})">@tinNoiBat.TieuDe</a></h4>
+                <h4><a href="@Url.Action("CTTin","TrangChu",new { id = tinNoiBat.idTin})">@tinNoiBat.TieuDe</a></h4>
                 <h5>Tác giả <a href="#">@tinNoiBat.User.HoTen</a> <label>|</label> <i>@tinNoiBat.Ngay</i></h5>
                 <p>@tinNoiBat.TomTat</p>
             </div>
             <div class="clearfix"> </div>
         </li>
 }
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page }))
+</div>

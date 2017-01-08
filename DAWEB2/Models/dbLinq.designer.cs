@@ -22,7 +22,7 @@ namespace DAWEB2.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TinTucWeb")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="TinTucWeb2")]
 	public partial class dbLinqDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,22 +33,37 @@ namespace DAWEB2.Models
     partial void InsertComMent(ComMent instance);
     partial void UpdateComMent(ComMent instance);
     partial void DeleteComMent(ComMent instance);
+    partial void InsertDSMail(DSMail instance);
+    partial void UpdateDSMail(DSMail instance);
+    partial void DeleteDSMail(DSMail instance);
     partial void InsertLoaiTin(LoaiTin instance);
     partial void UpdateLoaiTin(LoaiTin instance);
     partial void DeleteLoaiTin(LoaiTin instance);
+    partial void InsertMessage(Message instance);
+    partial void UpdateMessage(Message instance);
+    partial void DeleteMessage(Message instance);
+    partial void InsertPhanQuyen(PhanQuyen instance);
+    partial void UpdatePhanQuyen(PhanQuyen instance);
+    partial void DeletePhanQuyen(PhanQuyen instance);
     partial void InsertTin(Tin instance);
     partial void UpdateTin(Tin instance);
     partial void DeleteTin(Tin instance);
     partial void InsertTheLoai(TheLoai instance);
     partial void UpdateTheLoai(TheLoai instance);
     partial void DeleteTheLoai(TheLoai instance);
+    partial void InsertTrangWeb(TrangWeb instance);
+    partial void UpdateTrangWeb(TrangWeb instance);
+    partial void DeleteTrangWeb(TrangWeb instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertVaiTro(VaiTro instance);
+    partial void UpdateVaiTro(VaiTro instance);
+    partial void DeleteVaiTro(VaiTro instance);
     #endregion
 		
 		public dbLinqDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TinTucWebConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TinTucWeb2ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -85,11 +100,35 @@ namespace DAWEB2.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<DSMail> DSMails
+		{
+			get
+			{
+				return this.GetTable<DSMail>();
+			}
+		}
+		
 		public System.Data.Linq.Table<LoaiTin> LoaiTins
 		{
 			get
 			{
 				return this.GetTable<LoaiTin>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Message> Messages
+		{
+			get
+			{
+				return this.GetTable<Message>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PhanQuyen> PhanQuyens
+		{
+			get
+			{
+				return this.GetTable<PhanQuyen>();
 			}
 		}
 		
@@ -109,11 +148,27 @@ namespace DAWEB2.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<TrangWeb> TrangWebs
+		{
+			get
+			{
+				return this.GetTable<TrangWeb>();
+			}
+		}
+		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
 				return this.GetTable<User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VaiTro> VaiTros
+		{
+			get
+			{
+				return this.GetTable<VaiTro>();
 			}
 		}
 	}
@@ -292,6 +347,92 @@ namespace DAWEB2.Models
 						this._idTin = default(int);
 					}
 					this.SendPropertyChanged("Tin");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DSMail")]
+	public partial class DSMail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idMail;
+		
+		private string _Email;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidMailChanging(int value);
+    partial void OnidMailChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    #endregion
+		
+		public DSMail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMail", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idMail
+		{
+			get
+			{
+				return this._idMail;
+			}
+			set
+			{
+				if ((this._idMail != value))
+				{
+					this.OnidMailChanging(value);
+					this.SendPropertyChanging();
+					this._idMail = value;
+					this.SendPropertyChanged("idMail");
+					this.OnidMailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
@@ -520,6 +661,380 @@ namespace DAWEB2.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
+	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idMes;
+		
+		private string _Hoten;
+		
+		private string _Email;
+		
+		private string _Mess;
+		
+		private System.Nullable<bool> _TinhTrang;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidMesChanging(int value);
+    partial void OnidMesChanged();
+    partial void OnHotenChanging(string value);
+    partial void OnHotenChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnMessChanging(string value);
+    partial void OnMessChanged();
+    partial void OnTinhTrangChanging(System.Nullable<bool> value);
+    partial void OnTinhTrangChanged();
+    #endregion
+		
+		public Message()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMes", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idMes
+		{
+			get
+			{
+				return this._idMes;
+			}
+			set
+			{
+				if ((this._idMes != value))
+				{
+					this.OnidMesChanging(value);
+					this.SendPropertyChanging();
+					this._idMes = value;
+					this.SendPropertyChanged("idMes");
+					this.OnidMesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hoten", DbType="NVarChar(50)")]
+		public string Hoten
+		{
+			get
+			{
+				return this._Hoten;
+			}
+			set
+			{
+				if ((this._Hoten != value))
+				{
+					this.OnHotenChanging(value);
+					this.SendPropertyChanging();
+					this._Hoten = value;
+					this.SendPropertyChanged("Hoten");
+					this.OnHotenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mess", DbType="NVarChar(MAX)")]
+		public string Mess
+		{
+			get
+			{
+				return this._Mess;
+			}
+			set
+			{
+				if ((this._Mess != value))
+				{
+					this.OnMessChanging(value);
+					this.SendPropertyChanging();
+					this._Mess = value;
+					this.SendPropertyChanged("Mess");
+					this.OnMessChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TinhTrang", DbType="Bit")]
+		public System.Nullable<bool> TinhTrang
+		{
+			get
+			{
+				return this._TinhTrang;
+			}
+			set
+			{
+				if ((this._TinhTrang != value))
+				{
+					this.OnTinhTrangChanging(value);
+					this.SendPropertyChanging();
+					this._TinhTrang = value;
+					this.SendPropertyChanged("TinhTrang");
+					this.OnTinhTrangChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PhanQuyen")]
+	public partial class PhanQuyen : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaPQ;
+		
+		private int _MaVT;
+		
+		private int _MaTW;
+		
+		private bool _DuocPhep;
+		
+		private EntityRef<TrangWeb> _TrangWeb;
+		
+		private EntityRef<VaiTro> _VaiTro;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaPQChanging(int value);
+    partial void OnMaPQChanged();
+    partial void OnMaVTChanging(int value);
+    partial void OnMaVTChanged();
+    partial void OnMaTWChanging(int value);
+    partial void OnMaTWChanged();
+    partial void OnDuocPhepChanging(bool value);
+    partial void OnDuocPhepChanged();
+    #endregion
+		
+		public PhanQuyen()
+		{
+			this._TrangWeb = default(EntityRef<TrangWeb>);
+			this._VaiTro = default(EntityRef<VaiTro>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPQ", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaPQ
+		{
+			get
+			{
+				return this._MaPQ;
+			}
+			set
+			{
+				if ((this._MaPQ != value))
+				{
+					this.OnMaPQChanging(value);
+					this.SendPropertyChanging();
+					this._MaPQ = value;
+					this.SendPropertyChanged("MaPQ");
+					this.OnMaPQChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVT", DbType="Int NOT NULL")]
+		public int MaVT
+		{
+			get
+			{
+				return this._MaVT;
+			}
+			set
+			{
+				if ((this._MaVT != value))
+				{
+					if (this._VaiTro.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaVTChanging(value);
+					this.SendPropertyChanging();
+					this._MaVT = value;
+					this.SendPropertyChanged("MaVT");
+					this.OnMaVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTW", DbType="Int NOT NULL")]
+		public int MaTW
+		{
+			get
+			{
+				return this._MaTW;
+			}
+			set
+			{
+				if ((this._MaTW != value))
+				{
+					if (this._TrangWeb.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaTWChanging(value);
+					this.SendPropertyChanging();
+					this._MaTW = value;
+					this.SendPropertyChanged("MaTW");
+					this.OnMaTWChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DuocPhep", DbType="Bit NOT NULL")]
+		public bool DuocPhep
+		{
+			get
+			{
+				return this._DuocPhep;
+			}
+			set
+			{
+				if ((this._DuocPhep != value))
+				{
+					this.OnDuocPhepChanging(value);
+					this.SendPropertyChanging();
+					this._DuocPhep = value;
+					this.SendPropertyChanged("DuocPhep");
+					this.OnDuocPhepChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrangWeb_PhanQuyen", Storage="_TrangWeb", ThisKey="MaTW", OtherKey="MaTW", IsForeignKey=true)]
+		public TrangWeb TrangWeb
+		{
+			get
+			{
+				return this._TrangWeb.Entity;
+			}
+			set
+			{
+				TrangWeb previousValue = this._TrangWeb.Entity;
+				if (((previousValue != value) 
+							|| (this._TrangWeb.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrangWeb.Entity = null;
+						previousValue.PhanQuyens.Remove(this);
+					}
+					this._TrangWeb.Entity = value;
+					if ((value != null))
+					{
+						value.PhanQuyens.Add(this);
+						this._MaTW = value.MaTW;
+					}
+					else
+					{
+						this._MaTW = default(int);
+					}
+					this.SendPropertyChanged("TrangWeb");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VaiTro_PhanQuyen", Storage="_VaiTro", ThisKey="MaVT", OtherKey="MaVT", IsForeignKey=true)]
+		public VaiTro VaiTro
+		{
+			get
+			{
+				return this._VaiTro.Entity;
+			}
+			set
+			{
+				VaiTro previousValue = this._VaiTro.Entity;
+				if (((previousValue != value) 
+							|| (this._VaiTro.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._VaiTro.Entity = null;
+						previousValue.PhanQuyens.Remove(this);
+					}
+					this._VaiTro.Entity = value;
+					if ((value != null))
+					{
+						value.PhanQuyens.Add(this);
+						this._MaVT = value.MaVT;
+					}
+					else
+					{
+						this._MaVT = default(int);
+					}
+					this.SendPropertyChanged("VaiTro");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tin")]
 	public partial class Tin : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -536,7 +1051,7 @@ namespace DAWEB2.Models
 		
 		private System.DateTime _Ngay;
 		
-		private int _idUser;
+		private string _idUser;
 		
 		private string _NoiDung;
 		
@@ -572,7 +1087,7 @@ namespace DAWEB2.Models
     partial void OnurlHinhChanged();
     partial void OnNgayChanging(System.DateTime value);
     partial void OnNgayChanged();
-    partial void OnidUserChanging(int value);
+    partial void OnidUserChanging(string value);
     partial void OnidUserChanged();
     partial void OnNoiDungChanging(string value);
     partial void OnNoiDungChanged();
@@ -697,8 +1212,8 @@ namespace DAWEB2.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="Int NOT NULL")]
-		public int idUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string idUser
 		{
 			get
 			{
@@ -957,7 +1472,7 @@ namespace DAWEB2.Models
 					}
 					else
 					{
-						this._idUser = default(int);
+						this._idUser = default(string);
 					}
 					this.SendPropertyChanged("User");
 				}
@@ -1163,13 +1678,151 @@ namespace DAWEB2.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TrangWeb")]
+	public partial class TrangWeb : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaTW;
+		
+		private string _TenTW;
+		
+		private string _MoTa;
+		
+		private EntitySet<PhanQuyen> _PhanQuyens;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaTWChanging(int value);
+    partial void OnMaTWChanged();
+    partial void OnTenTWChanging(string value);
+    partial void OnTenTWChanged();
+    partial void OnMoTaChanging(string value);
+    partial void OnMoTaChanged();
+    #endregion
+		
+		public TrangWeb()
+		{
+			this._PhanQuyens = new EntitySet<PhanQuyen>(new Action<PhanQuyen>(this.attach_PhanQuyens), new Action<PhanQuyen>(this.detach_PhanQuyens));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTW", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaTW
+		{
+			get
+			{
+				return this._MaTW;
+			}
+			set
+			{
+				if ((this._MaTW != value))
+				{
+					this.OnMaTWChanging(value);
+					this.SendPropertyChanging();
+					this._MaTW = value;
+					this.SendPropertyChanged("MaTW");
+					this.OnMaTWChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTW", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TenTW
+		{
+			get
+			{
+				return this._TenTW;
+			}
+			set
+			{
+				if ((this._TenTW != value))
+				{
+					this.OnTenTWChanging(value);
+					this.SendPropertyChanging();
+					this._TenTW = value;
+					this.SendPropertyChanged("TenTW");
+					this.OnTenTWChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoTa", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MoTa
+		{
+			get
+			{
+				return this._MoTa;
+			}
+			set
+			{
+				if ((this._MoTa != value))
+				{
+					this.OnMoTaChanging(value);
+					this.SendPropertyChanging();
+					this._MoTa = value;
+					this.SendPropertyChanged("MoTa");
+					this.OnMoTaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrangWeb_PhanQuyen", Storage="_PhanQuyens", ThisKey="MaTW", OtherKey="MaTW")]
+		public EntitySet<PhanQuyen> PhanQuyens
+		{
+			get
+			{
+				return this._PhanQuyens;
+			}
+			set
+			{
+				this._PhanQuyens.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PhanQuyens(PhanQuyen entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrangWeb = this;
+		}
+		
+		private void detach_PhanQuyens(PhanQuyen entity)
+		{
+			this.SendPropertyChanging();
+			entity.TrangWeb = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idUser;
+		private string _idUser;
 		
 		private string _HoTen;
 		
@@ -1191,13 +1844,17 @@ namespace DAWEB2.Models
 		
 		private bool _Active;
 		
+		private System.Nullable<int> _MaVT;
+		
 		private EntitySet<Tin> _Tins;
+		
+		private EntityRef<VaiTro> _VaiTro;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidUserChanging(int value);
+    partial void OnidUserChanging(string value);
     partial void OnidUserChanged();
     partial void OnHoTenChanging(string value);
     partial void OnHoTenChanged();
@@ -1219,16 +1876,19 @@ namespace DAWEB2.Models
     partial void OnGioiTinhChanged();
     partial void OnActiveChanging(bool value);
     partial void OnActiveChanged();
+    partial void OnMaVTChanging(System.Nullable<int> value);
+    partial void OnMaVTChanged();
     #endregion
 		
 		public User()
 		{
 			this._Tins = new EntitySet<Tin>(new Action<Tin>(this.attach_Tins), new Action<Tin>(this.detach_Tins));
+			this._VaiTro = default(EntityRef<VaiTro>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUser", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idUser
 		{
 			get
 			{
@@ -1447,6 +2107,30 @@ namespace DAWEB2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVT", DbType="Int")]
+		public System.Nullable<int> MaVT
+		{
+			get
+			{
+				return this._MaVT;
+			}
+			set
+			{
+				if ((this._MaVT != value))
+				{
+					if (this._VaiTro.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaVTChanging(value);
+					this.SendPropertyChanging();
+					this._MaVT = value;
+					this.SendPropertyChanged("MaVT");
+					this.OnMaVTChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Tin", Storage="_Tins", ThisKey="idUser", OtherKey="idUser")]
 		public EntitySet<Tin> Tins
 		{
@@ -1457,6 +2141,40 @@ namespace DAWEB2.Models
 			set
 			{
 				this._Tins.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VaiTro_User", Storage="_VaiTro", ThisKey="MaVT", OtherKey="MaVT", IsForeignKey=true)]
+		public VaiTro VaiTro
+		{
+			get
+			{
+				return this._VaiTro.Entity;
+			}
+			set
+			{
+				VaiTro previousValue = this._VaiTro.Entity;
+				if (((previousValue != value) 
+							|| (this._VaiTro.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._VaiTro.Entity = null;
+						previousValue.Users.Remove(this);
+					}
+					this._VaiTro.Entity = value;
+					if ((value != null))
+					{
+						value.Users.Add(this);
+						this._MaVT = value.MaVT;
+					}
+					else
+					{
+						this._MaVT = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("VaiTro");
+				}
 			}
 		}
 		
@@ -1490,6 +2208,172 @@ namespace DAWEB2.Models
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VaiTro")]
+	public partial class VaiTro : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaVT;
+		
+		private string _TenVT;
+		
+		private string _MoTa;
+		
+		private EntitySet<PhanQuyen> _PhanQuyens;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaVTChanging(int value);
+    partial void OnMaVTChanged();
+    partial void OnTenVTChanging(string value);
+    partial void OnTenVTChanged();
+    partial void OnMoTaChanging(string value);
+    partial void OnMoTaChanged();
+    #endregion
+		
+		public VaiTro()
+		{
+			this._PhanQuyens = new EntitySet<PhanQuyen>(new Action<PhanQuyen>(this.attach_PhanQuyens), new Action<PhanQuyen>(this.detach_PhanQuyens));
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVT", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaVT
+		{
+			get
+			{
+				return this._MaVT;
+			}
+			set
+			{
+				if ((this._MaVT != value))
+				{
+					this.OnMaVTChanging(value);
+					this.SendPropertyChanging();
+					this._MaVT = value;
+					this.SendPropertyChanged("MaVT");
+					this.OnMaVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenVT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TenVT
+		{
+			get
+			{
+				return this._TenVT;
+			}
+			set
+			{
+				if ((this._TenVT != value))
+				{
+					this.OnTenVTChanging(value);
+					this.SendPropertyChanging();
+					this._TenVT = value;
+					this.SendPropertyChanged("TenVT");
+					this.OnTenVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoTa", DbType="NVarChar(100)")]
+		public string MoTa
+		{
+			get
+			{
+				return this._MoTa;
+			}
+			set
+			{
+				if ((this._MoTa != value))
+				{
+					this.OnMoTaChanging(value);
+					this.SendPropertyChanging();
+					this._MoTa = value;
+					this.SendPropertyChanged("MoTa");
+					this.OnMoTaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VaiTro_PhanQuyen", Storage="_PhanQuyens", ThisKey="MaVT", OtherKey="MaVT")]
+		public EntitySet<PhanQuyen> PhanQuyens
+		{
+			get
+			{
+				return this._PhanQuyens;
+			}
+			set
+			{
+				this._PhanQuyens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VaiTro_User", Storage="_Users", ThisKey="MaVT", OtherKey="MaVT")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PhanQuyens(PhanQuyen entity)
+		{
+			this.SendPropertyChanging();
+			entity.VaiTro = this;
+		}
+		
+		private void detach_PhanQuyens(PhanQuyen entity)
+		{
+			this.SendPropertyChanging();
+			entity.VaiTro = null;
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.VaiTro = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.VaiTro = null;
 		}
 	}
 }
