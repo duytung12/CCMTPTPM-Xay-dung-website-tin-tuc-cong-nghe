@@ -595,6 +595,7 @@
     <Content Include="Views\Admin\QLPhanQuyen.cshtml" />
     <Content Include="Views\Admin\PQuyen.cshtml" />
     <Content Include="Views\Admin\SuaQuyen.cshtml" />
+    <Content Include="Views\TrangChu\TrangXemNhieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

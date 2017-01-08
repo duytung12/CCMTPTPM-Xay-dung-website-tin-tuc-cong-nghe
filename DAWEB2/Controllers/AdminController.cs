@@ -799,10 +799,17 @@ namespace DAWEB2.Controllers
                 {
                     if (a.TrangWeb.TenTW == tenTW && a.DuocPhep == true) diem = 1;
                 }
-                if (diem != 1)  Response.Redirect("KoCoTrangNay");
+                if (diem != 1) Response.Redirect("KoCoTrangNay");
             }
         }
         #endregion
+
+       
+        public ActionResult ThoatButton()
+        {
+             Session.Remove("Admin");
+             return Redirect("~/Admin");
+        }
 
     }
 }

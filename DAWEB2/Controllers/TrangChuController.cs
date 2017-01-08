@@ -72,7 +72,7 @@ namespace DAWEB2.Controllers
         {
             return PartialView(db.Tins.OrderByDescending(x => x.Ngay).Where(x => x.idLoaiTin == 4).Take(4));
         }
-
+        // cac tin hot la lay dua vao so lan xem
         public ActionResult Lay1TinCNTGHot()
         {
             var tinCNTN = db.Tins.Where(x => x.idLoaiTin == 6).OrderByDescending(x => x.SoLanXem).Take(1);
@@ -216,7 +216,6 @@ namespace DAWEB2.Controllers
             return re.IsMatch(email);
         }
         #endregion
-
         public ActionResult TimKiem(string id)
         {
             var a = db.Tins.ToList();
@@ -231,6 +230,13 @@ namespace DAWEB2.Controllers
                 }
             }
             return View(listTinCanTim);
+        }
+
+
+        public ActionResult TrangXemNhieu()
+        {
+            var timXemNhieu = db.Tins.OrderByDescending(x => x.SoLanXem).Take(6);
+            return View(timXemNhieu);
         }
 
         #endregion
